@@ -3,104 +3,139 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CPP · Con Progreso se Progresa</title>
-
-    <!-- ===== CSS ===== -->
+    <title>CPP · Con Progreso se Progresa | Elecciones 2026</title>
     <link rel="stylesheet" href="css/style.css" />
-
-    <!-- ===== FUENTES (Opcional) ===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-    <!-- ============================================================ -->
-    <!-- HEADER / NAVEGACIÓN -->
-    <!-- ============================================================ -->
-    <header class="header">
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
         <div class="container header-inner">
-            <div class="logo">
+            <a href="#inicio" class="logo">
                 <span class="logo-cpp">CPP</span>
                 <span class="logo-slogan">Con Progreso se Progresa</span>
-            </div>
-            <nav class="nav">
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menú de navegación">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav" id="nav">
                 <a href="#inicio">Inicio</a>
                 <a href="#candidatos">Candidatos</a>
-                <a href="#propuestas">Propuestas</a>
-                <a href="#contacto">Contacto</a>
+                <a href="#propuestas">Plan de Gobierno</a>
+                <a href="#peru">Nuestro Perú</a>
+                <a href="#votar">Vota</a>
             </nav>
         </div>
     </header>
 
-    <!-- ============================================================ -->
-    <!-- HERO / BANNER PRINCIPAL -->
-    <!-- ============================================================ -->
+    <!-- ===== HERO ===== -->
     <section class="hero" id="inicio">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <span class="hero-tag">CPP · Elecciones 2026</span>
-                <h1>Juntos por un <br /><span class="highlight">Santutis Abierto</span></h1>
-                <p class="hero-lema">Chino · Dudu · Toomx — El cambio que el Perú necesita (o no).</p>
-                <a href="#candidatos" class="btn-primary">Conoce a tu equipo</a>
-            </div>
-            <div class="hero-image">
-                <img src="img/chino-presidente.jpg" alt="Chino Presidente" />
+        <div class="hero-carousel" id="heroCarousel">
+            <div class="carousel-slide active" style="background-image: url('img/machupicchu.jpg')"></div>
+            <div class="carousel-slide" style="background-image: url('img/bandera-peru.jpg')"></div>
+            <div class="carousel-slide" style="background-image: url('img/peru-paisaje.jpg')"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <span class="hero-tag fade-in">CPP · Elecciones 2026</span>
+            <h1 class="fade-in">Juntos por un <span class="highlight">Santutis Abierto</span></h1>
+            <p class="hero-sub fade-in">Stiven Cuentas Ramos · Presidente 2026</p>
+            <p class="hero-lema" id="typingText"></p>
+            <div class="hero-cta fade-in">
+                <a href="#candidatos" class="btn-primary pulse">Conoce a tu equipo</a>
             </div>
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- SECCIÓN: CANDIDATOS -->
-    <!-- ============================================================ -->
-    <section class="candidatos" id="candidatos">
+    <!-- ===== NUESTRO PERÚ ===== -->
+    <section class="section peru" id="peru">
         <div class="container">
-            <h2 class="section-title">Nuestra <span>plancha</span></h2>
-            <p class="section-sub">Tres peruanos, un mismo destino (y muchas ganas de chaufa).</p>
+            <div class="section-header fade-up">
+                <h2 class="section-title">El Perú que <span>merecemos</span></h2>
+                <p class="section-sub">Un país con historia, cultura y un futuro que construimos juntos.</p>
+            </div>
+            <div class="peru-grid">
+                <div class="peru-card fade-up">
+                    <div class="peru-img">
+                        <img src="img/machupicchu.jpg" alt="Machu Picchu" loading="lazy" />
+                    </div>
+                    <div class="peru-body">
+                        <h3>Machu Picchu</h3>
+                        <p>Nuestra herencia ancestral, testigo de la grandeza de un país que mira al futuro sin olvidar sus raíces. Desde las alturas de Cusco, el espíritu del Perú se renueva.</p>
+                    </div>
+                </div>
+                <div class="peru-card fade-up">
+                    <div class="peru-img">
+                        <img src="img/bandera-peru.jpg" alt="Bandera del Perú" loading="lazy" />
+                    </div>
+                    <div class="peru-body">
+                        <h3>Bandera Nacional</h3>
+                        <p>Rojo y blanco, la sangre de nuestros héroes y la paz que anhelamos. Un símbolo que nos une como nación y nos recuerda que el Perú es primero.</p>
+                    </div>
+                </div>
+                <div class="peru-card fade-up">
+                    <div class="peru-img">
+                        <img src="img/peru-paisaje.jpg" alt="Paisaje andino" loading="lazy" />
+                    </div>
+                    <div class="peru-body">
+                        <h3>Nuestros Andes</h3>
+                        <p>Montañas que tocan el cielo, valles que alimentan la tierra. La geografía de nuestra patria es tan diversa como su gente. Por un Perú sin excluidos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- ===== CANDIDATOS ===== -->
+    <section class="section candidatos" id="candidatos">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="section-title">Nuestra <span>plancha presidencial</span></h2>
+                <p class="section-sub">Tres peruanos comprometidos con el cambio que el país necesita.</p>
+            </div>
             <div class="candidatos-grid">
 
-                <!-- TARJETA 1: CHINO (PRESIDENTE) -->
-                <div class="candidato-card">
-                    <div class="candidato-badge">Presidente</div>
-                    <img src="img/chino-presidente.jpg" alt="Chino" class="candidato-img" />
+                <div class="candidato-card card-destacado fade-up">
+                    <div class="candidato-badge">Candidato a la Presidencia</div>
+                    <div class="candidato-img-wrap">
+                        <img src="img/bannerchino.jpg" alt="Stiven Cuentas Ramos" class="candidato-img" loading="lazy" />
+                    </div>
                     <h3 class="candidato-nombre">Stiven Cuentas Ramos</h3>
-                    <p class="candidato-apodo">"Chino"</p>
-                    <p class="candidato-lema">🇵🇪 <strong>"Juntos por un SANTUTIS ABIERTO"</strong></p>
-                    <p class="candidato-desc">El único que no roba porque no sabe contar. Vota por él, total los demás son peores.</p>
+                    <p class="candidato-lema">"Juntos por un Santutis Abierto — el Perú que merecemos"</p>
+                    <p class="candidato-desc">Líder con visión de futuro, comprometido con la transparencia y el desarrollo sostenible. Cree firmemente que el progreso se construye desde la unidad y el diálogo.</p>
                     <div class="candidato-redes">
-                        <a href="#">📱</a>
-                        <a href="#">🐦</a>
-                        <a href="#">📷</a>
+                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
                     </div>
                 </div>
 
-                <!-- TARJETA 2: DUDU (MINISTRO) -->
-                <div class="candidato-card">
+                <div class="candidato-card fade-up">
                     <div class="candidato-badge">Ministro de Cultura</div>
-                    <img src="img/dudu-ministro.jpg" alt="Dudu" class="candidato-img" />
+                    <div class="candidato-img-wrap">
+                        <img src="img/bannerdudu.jpg" alt="Dudú Lizarzaburu Flores" class="candidato-img" loading="lazy" />
+                    </div>
                     <h3 class="candidato-nombre">Dudú Lizarzaburu Flores</h3>
-                    <p class="candidato-apodo">"Dudu"</p>
-                    <p class="candidato-lema">🎵 <strong>"Mi música NO se ESCUCHA pero TUS OPINIONES SÍ"</strong></p>
-                    <p class="candidato-desc">El artista que no canta, pero escucha al pueblo. Literalmente, no sabe cantar.</p>
+                    <p class="candidato-lema">"La cultura es el alma de un pueblo. Hagamos que se escuche"</p>
+                    <p class="candidato-desc">Gestor cultural y artista comprometido con la descentralización del arte. Cree en una política cultural que llegue a cada rincón del Perú, sin elitismos ni exclusiones.</p>
                     <div class="candidato-redes">
-                        <a href="#">📱</a>
-                        <a href="#">🐦</a>
-                        <a href="#">📷</a>
+                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
                     </div>
                 </div>
 
-                <!-- TARJETA 3: ANTHONY (MINISTRO) -->
-                <div class="candidato-card">
+                <div class="candidato-card fade-up">
                     <div class="candidato-badge">Ministro de Tecnología</div>
-                    <img src="img/anthony-ministro.jpg" alt="Toomx" class="candidato-img" />
+                    <div class="candidato-img-wrap">
+                        <img src="img/banneranthony.jpg" alt="Anthony La Torre Velazco" class="candidato-img" loading="lazy" />
+                    </div>
                     <h3 class="candidato-nombre">Anthony La Torre Velazco</h3>
-                    <p class="candidato-apodo">"Toomx"</p>
-                    <p class="candidato-lema">❄️ <strong>"Soy frío porque cuando fui CALIENTE me KCHE un TRABAJO"</strong></p>
-                    <p class="candidato-desc">Ingeniero de sistemas, experto en café y en evitar que el Perú se caiga (como su servidor).</p>
+                    <p class="candidato-lema">"Tecnología para cerrar brechas, no para crearlas"</p>
+                    <p class="candidato-desc">Ingeniero de sistemas con experiencia en innovación digital. Convencido de que la tecnología debe ser una herramienta de inclusión y desarrollo para todos los peruanos.</p>
                     <div class="candidato-redes">
-                        <a href="#">📱</a>
-                        <a href="#">🐦</a>
-                        <a href="#">📷</a>
+                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
                     </div>
                 </div>
 
@@ -108,87 +143,131 @@
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- SECCIÓN: PROPUSESTAS (Decálogo) -->
-    <!-- ============================================================ -->
-    <section class="propuestas" id="propuestas">
+    <!-- ===== PLAN DE GOBIERNO ===== -->
+    <section class="section propuestas" id="propuestas">
         <div class="container">
-            <h2 class="section-title">Nuestro <span>Decálogo</span></h2>
-            <p class="section-sub">10 principios para un Perú con más humor y menos corrupción.</p>
-
+            <div class="section-header fade-up">
+                <h2 class="section-title">Decálogo de <span>Gobierno</span></h2>
+                <p class="section-sub">Diez compromisos concretos para transformar el Perú con responsabilidad y visión de futuro.</p>
+            </div>
             <div class="propuestas-grid">
-                <div class="propuesta-item">
+
+                <div class="propuesta-item fade-up">
                     <span class="propuesta-num">01</span>
-                    <p>Defendemos el derecho a comer chaufa los domingos.</p>
+                    <div class="propuesta-texto">
+                        <h4>Educación digital para todos</h4>
+                        <p>Acceso gratuito a internet y dispositivos en zonas rurales y urbanas marginales. La tecnología como puente, no como barrera.</p>
+                    </div>
                 </div>
-                <div class="propuesta-item">
+
+                <div class="propuesta-item fade-up">
                     <span class="propuesta-num">02</span>
-                    <p>Internet gratuito para todos… con anuncios de 5 minutos.</p>
+                    <div class="propuesta-texto">
+                        <h4>Transparencia radical</h4>
+                        <p>Todos los actos de gobierno serán transmitidos en vivo y publicados en formatos abiertos. El pueblo tiene derecho a saber.</p>
+                    </div>
                 </div>
-                <div class="propuesta-item">
+
+                <div class="propuesta-item fade-up">
                     <span class="propuesta-num">03</span>
-                    <p>Reemplazar a todos los ministros por un ChatGPT.</p>
+                    <div class="propuesta-texto">
+                        <h4>Reforma del Estado con IA</h4>
+                        <p>Modernización de procesos burocráticos mediante inteligencia artificial. Menos colas, más eficiencia, cero coimas.</p>
+                    </div>
                 </div>
-                <div class="propuesta-item">
+
+                <div class="propuesta-item fade-up">
                     <span class="propuesta-num">04</span>
-                    <p>La única discriminación que aceptamos es contra el ceviche sin cebolla.</p>
+                    <div class="propuesta-texto">
+                        <h4>Cultura descentralizada</h4>
+                        <p>Fondos directos para artistas y gestores culturales en cada región. La cultura no es privilegio de Lima.</p>
+                    </div>
                 </div>
-                <div class="propuesta-item">
+
+                <div class="propuesta-item fade-up">
                     <span class="propuesta-num">05</span>
-                    <p>Apoyo total a la PNP… para que nos traigan el pedido del delivery.</p>
+                    <div class="propuesta-texto">
+                        <h4>Salud mental accesible</h4>
+                        <p>Líneas de atención gratuita y centros de salud mental en cada provincia. Cuidar la mente es cuidar al Perú.</p>
+                    </div>
                 </div>
-                <div class="propuesta-item">
+
+                <div class="propuesta-item fade-up">
                     <span class="propuesta-num">06</span>
-                    <p>Educación con enfoque en memes y resúmenes de Wikipedia.</p>
+                    <div class="propuesta-texto">
+                        <h4>Innovación agropecuaria</h4>
+                        <p>Tecnología para el campo: riego inteligente, drones de monitoreo y asistencia técnica gratuita para pequeños agricultores.</p>
+                    </div>
                 </div>
-                <div class="propuesta-item">
+
+                <div class="propuesta-item fade-up">
                     <span class="propuesta-num">07</span>
-                    <p>Las criptomonedas serán la moneda oficial… o el culo, lo que sea más estable.</p>
+                    <div class="propuesta-texto">
+                        <h4>Transporte sostenible</h4>
+                        <p>Plan nacional de electromovilidad y ciclovías metropolitanas. Un Perú que se mueve sin contaminar.</p>
+                    </div>
                 </div>
-                <div class="propuesta-item">
+
+                <div class="propuesta-item fade-up">
                     <span class="propuesta-num">08</span>
-                    <p>Todos los peruanos tendrán un presidente que sí usa redes sociales.</p>
+                    <div class="propuesta-texto">
+                        <h4>Participación ciudadana digital</h4>
+                        <p>Presupuestos participativos a través de plataformas digitales seguras. Que cada peruano decida dónde van sus impuestos.</p>
+                    </div>
                 </div>
-                <div class="propuesta-item">
+
+                <div class="propuesta-item fade-up">
                     <span class="propuesta-num">09</span>
-                    <p>El himno nacional será reemplazado por "Chicha" de los Mirlos.</p>
+                    <div class="propuesta-texto">
+                        <h4>Patrimonio protegido</h4>
+                        <p>Plan nacional de conservación de sitios arqueológicos y museos comunitarios. Nuestra historia es nuestro tesoro.</p>
+                    </div>
                 </div>
-                <div class="propuesta-item">
+
+                <div class="propuesta-item fade-up">
                     <span class="propuesta-num">10</span>
-                    <p>Prometemos no robar… porque no sabemos cómo funciona el sistema bancario.</p>
+                    <div class="propuesta-texto">
+                        <h4>Gobierno sin privilegios</h4>
+                        <p>Sueldos estatales topados, fin de las pensiones vitalicias y veeduría ciudadana permanente. Predicar con el ejemplo.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VOTA ===== -->
+    <section class="section cta" id="votar">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="section-title">¿Listo para el <span>cambio</span>?</h2>
+                <p class="section-sub">Cada voto cuenta. Únete a los que creen que un Perú mejor es posible.</p>
+            </div>
+            <div class="cta-content fade-up">
+                <button class="btn-primary btn-grande pulse" id="btnVotar">Vota por CPP</button>
+                <div class="cta-contador">
+                    <span class="cta-contador-label">Peruanos que ya votaron por el cambio</span>
+                    <span class="cta-contador-num" id="contadorVotos">0</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- SECCIÓN: CONTACTO / CALL TO ACTION -->
-    <!-- ============================================================ -->
-    <section class="cta" id="contacto">
-        <div class="container">
-            <h2>¿Listo para <span>marcar la puerta</span>?</h2>
-            <p>Únete a la campaña más divertida del Perú. O al menos, la más honesta.</p>
-            <button class="btn-primary btn-grande" id="btnVotar">🗳️ Vota por CPP</button>
-            <p class="cta-contador">🇵🇪 Votos a favor: <span id="contadorVotos">0</span></p>
-        </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- FOOTER -->
-    <!-- ============================================================ -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
-            <p>
-                <strong>CPP · Con Progreso se Progresa</strong> — Elecciones 2026<br />
-                Esta es una página de parodia política. Cualquier parecido con la realidad es pura coincidencia (o no).
+            <div class="footer-brand">
+                <span class="logo-cpp">CPP</span>
+                <span class="footer-slogan">Con Progreso se Progresa</span>
+            </div>
+            <p class="footer-text">
+                Campaña política para las Elecciones Generales 2026 · Perú<br />
+                Partido político en proceso de inscripción
             </p>
-            <p class="footer-copy">© 2026 · Hecho con 🇵🇪 y mucho humor</p>
+            <p class="footer-copy">&copy; 2026 · Todos los derechos reservados</p>
         </div>
     </footer>
 
-    <!-- ============================================================ -->
-    <!-- JS -->
-    <!-- ============================================================ -->
     <script src="js/main.js"></script>
 </body>
 </html>
