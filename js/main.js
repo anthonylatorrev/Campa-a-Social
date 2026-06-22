@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ==========================================================
-    // HERO CAROUSEL
+    // HERO CAROUSEL — 5 images, fade every 7s
     // ==========================================================
     var slides = document.querySelectorAll('.carousel-slide');
     var currentSlide = 0;
@@ -100,6 +100,16 @@ document.addEventListener('DOMContentLoaded', function () {
         cards.forEach(function (card) {
             var clone = card.cloneNode(true);
             testimoniosTrack.appendChild(clone);
+        });
+    }
+
+    var testimoniosTrackReverse = document.getElementById('testimoniosTrackReverse');
+
+    if (testimoniosTrackReverse) {
+        var cardsReverse = testimoniosTrackReverse.querySelectorAll('.testimonio-card');
+        cardsReverse.forEach(function (card) {
+            var clone = card.cloneNode(true);
+            testimoniosTrackReverse.appendChild(clone);
         });
     }
 
@@ -404,6 +414,56 @@ document.addEventListener('DOMContentLoaded', function () {
             closeAllModals();
         }
     });
+
+    // ==========================================================
+    // VOLUNTEER FORM
+    // ==========================================================
+    var voluntariosForm = document.getElementById('voluntariosForm');
+    var formMensaje = document.getElementById('formMensaje');
+
+    if (voluntariosForm) {
+        voluntariosForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var nombre = document.getElementById('volNombre').value.trim();
+            var email = document.getElementById('volEmail').value.trim();
+            var telefono = document.getElementById('volTelefono').value.trim();
+            var region = document.getElementById('volRegion').value;
+
+            if (!nombre || !email || !telefono || !region) {
+                formMensaje.textContent = 'Todos los campos son obligatorios.';
+                formMensaje.className = 'form-mensaje error';
+                return;
+            }
+
+            var voluntariosActuales = parseInt(localStorage.getItem('voluntariosCPP') || '0', 10);
+            var nuevos = voluntariosActuales + 1;
+            localStorage.setItem('voluntariosCPP', String(nuevos));
+
+            formMensaje.textContent = 'Gracias, ' + nombre + '! Te hemos registrado en ' + region + '. Te contactaremos pronto.';
+            formMensaje.className = 'form-mensaje exito';
+
+            var volCountEl = document.getElementById('voluntariosCount');
+            if (volCountEl) {
+                animateNumber(volCountEl, voluntariosActuales, nuevos, 800);
+            }
+
+            voluntariosForm.reset();
+
+            lanzarConfeti();
+        });
+    }
+
+    // Inicializar contador de voluntarios
+    var volCountEl = document.getElementById('voluntariosCount');
+    if (volCountEl) {
+        var volStored = parseInt(localStorage.getItem('voluntariosCPP') || '0', 10);
+        volCountEl.textContent = volStored.toLocaleString('es-PE');
+    }
+
+    // ==========================================================
+    // SMOOTH SCROLL — also for new nav links
+    // ==========================================================
 
     console.log('%c CPP · Con Progreso se Progresa ', 'background: #cc0000; color: #ffd700; font-weight: bold; font-size: 16px; padding: 8px 16px; border-radius: 4px;');
     console.log('%c Elecciones Perú 2026 ', 'color: #1a1a1a; font-size: 12px;');
