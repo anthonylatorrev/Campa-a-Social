@@ -3,513 +3,192 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🇵🇪 Chino 2026 - Marca la Puerta</title>
+    <title>CPP · Con Progreso se Progresa</title>
 
-    <!-- ===== ESTILOS ===== -->
-    <style>
-        /* ---------- RESET Y BASE ---------- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="css/style.css" />
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #1a0a0a;
-            /* Fondo oscuro con textura peruana */
-            background-image: radial-gradient(circle at 20% 30%, #3d1a1a 0%, #0d0505 90%);
-            color: #fff;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* ---------- BANDA PRESIDENCIAL (decorativa) ---------- */
-        .banda-superior {
-            background: linear-gradient(90deg, #d91010, #ffffff, #d91010);
-            height: 8px;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 999;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
-            animation: brilloBanda 1.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes brilloBanda {
-            0% {
-                opacity: 0.7;
-                box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
-            }
-            100% {
-                opacity: 1;
-                box-shadow: 0 0 40px rgba(255, 0, 0, 0.9);
-            }
-        }
-
-        /* ---------- CONTENEDOR PRINCIPAL ---------- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 30px 20px 60px;
-            text-align: center;
-        }
-
-        /* ---------- LOGO / TÍTULO PRINCIPAL CON ANIMACIÓN ---------- */
-        .hero {
-            margin-top: 40px;
-            animation: fadeInDown 1.2s ease-out;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 900;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            background: linear-gradient(135deg, #ffdd00, #ffffff, #ffdd00);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradienteMovil 3s ease-in-out infinite alternate;
-            text-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
-        }
-
-        @keyframes gradienteMovil {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 100% 50%;
-            }
-        }
-
-        .hero .slogan {
-            font-size: 1.8rem;
-            font-weight: 300;
-            color: #ffcc66;
-            margin-top: 10px;
-            text-shadow: 0 0 20px rgba(255, 200, 0, 0.5);
-            animation: parpadeo 2s ease-in-out infinite;
-        }
-
-        @keyframes parpadeo {
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.8;
-                transform: scale(1.02);
-            }
-        }
-
-        .hero .sub-slogan {
-            font-size: 1.2rem;
-            color: #ff9999;
-            margin-top: 8px;
-            font-style: italic;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        /* ---------- FRASE ICÓNICA ---------- */
-        .frase-marca {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #fff;
-            background: linear-gradient(90deg, #d91010, #ffffff, #d91010);
-            padding: 20px 30px;
-            border-radius: 60px;
-            display: inline-block;
-            margin: 30px 0 20px;
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            box-shadow: 0 0 60px rgba(255, 0, 0, 0.5);
-            animation: latido 1.8s ease-in-out infinite;
-        }
-
-        @keyframes latido {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.04);
-            }
-        }
-
-        /* ---------- TARJETAS DE CANDIDATOS ---------- */
-        .candidatos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .candidato {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(8px);
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 30px;
-            padding: 25px 20px 30px;
-            width: 280px;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-            animation: aparecerArriba 0.8s ease-out both;
-        }
-
-        .candidato:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-        .candidato:nth-child(2) {
-            animation-delay: 0.5s;
-        }
-        .candidato:nth-child(3) {
-            animation-delay: 0.8s;
-        }
-
-        @keyframes aparecerArriba {
-            0% {
-                opacity: 0;
-                transform: translateY(60px) scale(0.9);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .candidato:hover {
-            transform: scale(1.05) translateY(-10px);
-            border-color: #ffdd00;
-            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
-        }
-
-        .candidato .foto {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #ffdd00;
-            margin: 0 auto 15px;
-            display: block;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-            transition: transform 0.5s ease;
-        }
-
-        .candidato:hover .foto {
-            transform: rotate(-6deg) scale(1.05);
-        }
-
-        .candidato h3 {
-            font-size: 1.8rem;
-            color: #ffdd00;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-            margin-bottom: 4px;
-        }
-
-        .candidato .cargo {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #ffaa66;
-            background: rgba(255, 100, 0, 0.2);
-            padding: 4px 18px;
-            border-radius: 30px;
-            display: inline-block;
-            margin-bottom: 12px;
-            border: 1px solid #ff8800;
-        }
-
-        .candidato p {
-            font-size: 0.95rem;
-            color: #ddd;
-            line-height: 1.5;
-        }
-
-        /* ---------- BOTÓN DE VOTO CON ANIMACIÓN ---------- */
-        .btn-voto {
-            background: linear-gradient(135deg, #d91010, #aa0000);
-            color: #fff;
-            font-size: 1.6rem;
-            font-weight: 800;
-            padding: 18px 50px;
-            border: none;
-            border-radius: 60px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 40px rgba(255, 0, 0, 0.5);
-            animation: pulsoBoton 2s ease-in-out infinite;
-            margin: 20px 0 10px;
-        }
-
-        .btn-voto:hover {
-            transform: scale(1.08);
-            background: linear-gradient(135deg, #ff3333, #cc0000);
-            box-shadow: 0 0 80px rgba(255, 0, 0, 0.8);
-        }
-
-        @keyframes pulsoBoton {
-            0%,
-            100% {
-                box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 70px rgba(255, 0, 0, 0.8);
-            }
-        }
-
-        /* ---------- CONTADOR DE VOTOS ---------- */
-        .contador-votos {
-            font-size: 1.4rem;
-            color: #ffcc88;
-            margin: 15px 0 30px;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 12px 30px;
-            border-radius: 50px;
-            display: inline-block;
-            border: 1px solid #ff8800;
-        }
-
-        .contador-votos span {
-            font-weight: 900;
-            color: #ffdd00;
-            font-size: 2rem;
-        }
-
-        /* ---------- PIE DE PÁGINA ---------- */
-        .footer {
-            margin-top: 50px;
-            padding: 20px;
-            border-top: 2px solid rgba(255, 215, 0, 0.2);
-            font-size: 0.9rem;
-            color: #aa8844;
-        }
-
-        .footer strong {
-            color: #ffdd00;
-        }
-
-        /* ---------- ANIMACIONES GENERALES ---------- */
-        @keyframes fadeInDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ---------- RESPONSIVE ---------- */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            .hero .slogan {
-                font-size: 1.3rem;
-            }
-            .frase-marca {
-                font-size: 1.4rem;
-                letter-spacing: 3px;
-                padding: 14px 20px;
-            }
-            .candidato {
-                width: 240px;
-                padding: 20px 15px;
-            }
-            .candidato .foto {
-                width: 120px;
-                height: 120px;
-            }
-            .btn-voto {
-                font-size: 1.2rem;
-                padding: 14px 30px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .frase-marca {
-                font-size: 1.1rem;
-                letter-spacing: 2px;
-            }
-            .candidato {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-
-        /* ---------- CONFETI (opcional, solo decorativo) ---------- */
-        .confeti-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-            overflow: hidden;
-        }
-        .confeti {
-            position: absolute;
-            top: -20px;
-            width: 12px;
-            height: 12px;
-            opacity: 0.8;
-            animation: caerConfeti linear infinite;
-        }
-        @keyframes caerConfeti {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(110vh) rotate(720deg);
-                opacity: 0.2;
-            }
-        }
-    </style>
+    <!-- ===== FUENTES (Opcional) ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-    <!-- Banda superior (decorativa) -->
-    <div class="banda-superior"></div>
-
-    <!-- Contenedor de confeti (se genera con JS) -->
-    <div class="confeti-container" id="confetiContainer"></div>
-
-    <!-- ===== CONTENIDO PRINCIPAL ===== -->
-    <div class="container">
-
-        <!-- HERO -->
-        <div class="hero">
-            <h1>🇵🇪 CHINO 2026</h1>
-            <div class="slogan">¡El Perú que merecemos!</div>
-            <div class="sub-slogan">Porque los otros también roban, pero nosotros con estilo</div>
-        </div>
-
-        <!-- FRASE ICÓNICA -->
-        <div class="frase-marca">
-            ⚡ EN ESTAS ELECCIONES, MARCA LA PUERTA ⚡
-        </div>
-
-        <!-- TARJETAS DE CANDIDATOS -->
-        <div class="candidatos">
-
-            <!-- CHINO - PRESIDENTE -->
-            <div class="candidato">
-                <img class="foto" src="img/bannerchino.jpg" alt="Chino Presidente" />
-                <h3>CHINO</h3>
-                <div class="cargo">👑 PRESIDENTE</div>
-                <p>"El único que no roba porque no sabe contar. Vota por mí, total los demás son peores."</p>
+    <!-- ============================================================ -->
+    <!-- HEADER / NAVEGACIÓN -->
+    <!-- ============================================================ -->
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo">
+                <span class="logo-cpp">CPP</span>
+                <span class="logo-slogan">Con Progreso se Progresa</span>
             </div>
+            <nav class="nav">
+                <a href="#inicio">Inicio</a>
+                <a href="#candidatos">Candidatos</a>
+                <a href="#propuestas">Propuestas</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
 
-            <!-- DUDU - MINISTRO -->
-            <div class="candidato">
-                <img class="foto" src="img/bannerdudu.jpg" alt="Dudu Ministro" />
-                <h3>DUDU</h3>
-                <div class="cargo">📊 MINISTRO DE ECONOMÍA</div>
-                <p>"Si no entendemos los números, que tampoco los entiendan los ricos. ¡Chaufa para todos!"</p>
+    <!-- ============================================================ -->
+    <!-- HERO / BANNER PRINCIPAL -->
+    <!-- ============================================================ -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-tag">CPP · Elecciones 2026</span>
+                <h1>Juntos por un <br /><span class="highlight">Santutis Abierto</span></h1>
+                <p class="hero-lema">Chino · Dudu · Toomx — El cambio que el Perú necesita (o no).</p>
+                <a href="#candidatos" class="btn-primary">Conoce a tu equipo</a>
             </div>
-
-            <!-- ANTHONY - MINISTRO -->
-            <div class="candidato">
-                <img class="foto" src="img/banneranthony.jpg" alt="Anthony Ministro" />
-                <h3>ANTHONY</h3>
-                <div class="cargo">🖥️ MINISTRO DE TECNOLOGÍA</div>
-                <p>"Internet gratuito para todos… con anuncios de 5 minutos. ¡Pero gratis!"</p>
+            <div class="hero-image">
+                <img src="img/chino-presidente.jpg" alt="Chino Presidente" />
             </div>
-
         </div>
+    </section>
 
-        <!-- BOTÓN VOTAR + CONTADOR -->
-        <button class="btn-voto" id="btnVotar">🗳️ VOTA POR CHINO</button>
-        <div class="contador-votos">
-            🇵🇪 Votos a favor: <span id="contadorVotos">0</span>
+    <!-- ============================================================ -->
+    <!-- SECCIÓN: CANDIDATOS -->
+    <!-- ============================================================ -->
+    <section class="candidatos" id="candidatos">
+        <div class="container">
+            <h2 class="section-title">Nuestra <span>plancha</span></h2>
+            <p class="section-sub">Tres peruanos, un mismo destino (y muchas ganas de chaufa).</p>
+
+            <div class="candidatos-grid">
+
+                <!-- TARJETA 1: CHINO (PRESIDENTE) -->
+                <div class="candidato-card">
+                    <div class="candidato-badge">Presidente</div>
+                    <img src="img/chino-presidente.jpg" alt="Chino" class="candidato-img" />
+                    <h3 class="candidato-nombre">Stiven Cuentas Ramos</h3>
+                    <p class="candidato-apodo">"Chino"</p>
+                    <p class="candidato-lema">🇵🇪 <strong>"Juntos por un SANTUTIS ABIERTO"</strong></p>
+                    <p class="candidato-desc">El único que no roba porque no sabe contar. Vota por él, total los demás son peores.</p>
+                    <div class="candidato-redes">
+                        <a href="#">📱</a>
+                        <a href="#">🐦</a>
+                        <a href="#">📷</a>
+                    </div>
+                </div>
+
+                <!-- TARJETA 2: DUDU (MINISTRO) -->
+                <div class="candidato-card">
+                    <div class="candidato-badge">Ministro de Cultura</div>
+                    <img src="img/dudu-ministro.jpg" alt="Dudu" class="candidato-img" />
+                    <h3 class="candidato-nombre">Dudú Lizarzaburu Flores</h3>
+                    <p class="candidato-apodo">"Dudu"</p>
+                    <p class="candidato-lema">🎵 <strong>"Mi música NO se ESCUCHA pero TUS OPINIONES SÍ"</strong></p>
+                    <p class="candidato-desc">El artista que no canta, pero escucha al pueblo. Literalmente, no sabe cantar.</p>
+                    <div class="candidato-redes">
+                        <a href="#">📱</a>
+                        <a href="#">🐦</a>
+                        <a href="#">📷</a>
+                    </div>
+                </div>
+
+                <!-- TARJETA 3: ANTHONY (MINISTRO) -->
+                <div class="candidato-card">
+                    <div class="candidato-badge">Ministro de Tecnología</div>
+                    <img src="img/anthony-ministro.jpg" alt="Toomx" class="candidato-img" />
+                    <h3 class="candidato-nombre">Anthony La Torre Velazco</h3>
+                    <p class="candidato-apodo">"Toomx"</p>
+                    <p class="candidato-lema">❄️ <strong>"Soy frío porque cuando fui CALIENTE me KCHE un TRABAJO"</strong></p>
+                    <p class="candidato-desc">Ingeniero de sistemas, experto en café y en evitar que el Perú se caiga (como su servidor).</p>
+                    <div class="candidato-redes">
+                        <a href="#">📱</a>
+                        <a href="#">🐦</a>
+                        <a href="#">📷</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-        <!-- PIE DE PÁGINA -->
-        <div class="footer">
-            <strong>#Chino2026</strong> — Marca la puerta, no el voto. <br />
-            Campaña parodia · Elecciones Perú 2026 · Con humor y esperanza.
+    <!-- ============================================================ -->
+    <!-- SECCIÓN: PROPUSESTAS (Decálogo) -->
+    <!-- ============================================================ -->
+    <section class="propuestas" id="propuestas">
+        <div class="container">
+            <h2 class="section-title">Nuestro <span>Decálogo</span></h2>
+            <p class="section-sub">10 principios para un Perú con más humor y menos corrupción.</p>
+
+            <div class="propuestas-grid">
+                <div class="propuesta-item">
+                    <span class="propuesta-num">01</span>
+                    <p>Defendemos el derecho a comer chaufa los domingos.</p>
+                </div>
+                <div class="propuesta-item">
+                    <span class="propuesta-num">02</span>
+                    <p>Internet gratuito para todos… con anuncios de 5 minutos.</p>
+                </div>
+                <div class="propuesta-item">
+                    <span class="propuesta-num">03</span>
+                    <p>Reemplazar a todos los ministros por un ChatGPT.</p>
+                </div>
+                <div class="propuesta-item">
+                    <span class="propuesta-num">04</span>
+                    <p>La única discriminación que aceptamos es contra el ceviche sin cebolla.</p>
+                </div>
+                <div class="propuesta-item">
+                    <span class="propuesta-num">05</span>
+                    <p>Apoyo total a la PNP… para que nos traigan el pedido del delivery.</p>
+                </div>
+                <div class="propuesta-item">
+                    <span class="propuesta-num">06</span>
+                    <p>Educación con enfoque en memes y resúmenes de Wikipedia.</p>
+                </div>
+                <div class="propuesta-item">
+                    <span class="propuesta-num">07</span>
+                    <p>Las criptomonedas serán la moneda oficial… o el culo, lo que sea más estable.</p>
+                </div>
+                <div class="propuesta-item">
+                    <span class="propuesta-num">08</span>
+                    <p>Todos los peruanos tendrán un presidente que sí usa redes sociales.</p>
+                </div>
+                <div class="propuesta-item">
+                    <span class="propuesta-num">09</span>
+                    <p>El himno nacional será reemplazado por "Chicha" de los Mirlos.</p>
+                </div>
+                <div class="propuesta-item">
+                    <span class="propuesta-num">10</span>
+                    <p>Prometemos no robar… porque no sabemos cómo funciona el sistema bancario.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-    </div>
+    <!-- ============================================================ -->
+    <!-- SECCIÓN: CONTACTO / CALL TO ACTION -->
+    <!-- ============================================================ -->
+    <section class="cta" id="contacto">
+        <div class="container">
+            <h2>¿Listo para <span>marcar la puerta</span>?</h2>
+            <p>Únete a la campaña más divertida del Perú. O al menos, la más honesta.</p>
+            <button class="btn-primary btn-grande" id="btnVotar">🗳️ Vota por CPP</button>
+            <p class="cta-contador">🇵🇪 Votos a favor: <span id="contadorVotos">0</span></p>
+        </div>
+    </section>
 
-    <!-- ===== JAVASCRIPT ===== -->
-    <script>
-        // ---------- CONFETI INFINITO ----------
-        (function generarConfeti() {
-            const container = document.getElementById('confetiContainer');
-            const colores = ['#ff0000', '#ffffff', '#ffdd00', '#ff8800', '#00ccff', '#ff44aa'];
+    <!-- ============================================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <p>
+                <strong>CPP · Con Progreso se Progresa</strong> — Elecciones 2026<br />
+                Esta es una página de parodia política. Cualquier parecido con la realidad es pura coincidencia (o no).
+            </p>
+            <p class="footer-copy">© 2026 · Hecho con 🇵🇪 y mucho humor</p>
+        </div>
+    </footer>
 
-            for (let i = 0; i < 60; i++) {
-                const confeti = document.createElement('div');
-                confeti.className = 'confeti';
-                confeti.style.left = Math.random() * 100 + '%';
-                confeti.style.width = (Math.random() * 8 + 6) + 'px';
-                confeti.style.height = (Math.random() * 8 + 6) + 'px';
-                confeti.style.background = colores[Math.floor(Math.random() * colores.length)];
-                confeti.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-                confeti.style.animationDuration = (Math.random() * 4 + 4) + 's';
-                confeti.style.animationDelay = (Math.random() * 6) + 's';
-                container.appendChild(confeti);
-            }
-        })();
-
-        // ---------- CONTADOR DE VOTOS CON LOCALSTORAGE ----------
-        let votos = localStorage.getItem('votosChino') ? parseInt(localStorage.getItem('votosChino')) : 0;
-        document.getElementById('contadorVotos').textContent = votos;
-
-        document.getElementById('btnVotar').addEventListener('click', function() {
-            votos++;
-            localStorage.setItem('votosChino', votos);
-            document.getElementById('contadorVotos').textContent = votos;
-
-            // Efecto de retroalimentación
-            this.textContent = '✅ ¡VOTASTE!';
-            this.style.background = 'linear-gradient(135deg, #00aa00, #006600)';
-            setTimeout(() => {
-                this.textContent = '🗳️ VOTA POR CHINO';
-                this.style.background = 'linear-gradient(135deg, #d91010, #aa0000)';
-            }, 2000);
-
-            // Animación extra: confeti al votar
-            for (let i = 0; i < 30; i++) {
-                const c = document.createElement('div');
-                c.className = 'confeti';
-                c.style.left = Math.random() * 100 + '%';
-                c.style.top = '0px';
-                c.style.width = (Math.random() * 10 + 6) + 'px';
-                c.style.height = (Math.random() * 10 + 6) + 'px';
-                c.style.background = ['#ff0000', '#ffdd00', '#ffffff', '#00ff88', '#ff44aa'][Math.floor(Math.random() * 5)];
-                c.style.borderRadius = '50%';
-                c.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                c.style.animationDelay = '0s';
-                document.getElementById('confetiContainer').appendChild(c);
-                setTimeout(() => c.remove(), 3000);
-            }
-        });
-
-        // ---------- EFECTO DE ESCRITURA EN EL SLOGAN (opcional) ----------
-        console.log('🇵🇪 ¡CHINO 2026! Marca la puerta, no el voto.');
-    </script>
-
+    <!-- ============================================================ -->
+    <!-- JS -->
+    <!-- ============================================================ -->
+    <script src="js/main.js"></script>
 </body>
 </html>

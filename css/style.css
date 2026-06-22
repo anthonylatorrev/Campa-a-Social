@@ -1,0 +1,480 @@
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ---------- TIPOGRAFÍA ---------- */
+h1,
+h2,
+h3 {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.highlight {
+    color: #cc0000;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.section-title span {
+    color: #cc0000;
+}
+
+.section-sub {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 48px;
+}
+
+/* ---------- BOTONES ---------- */
+.btn-primary {
+    display: inline-block;
+    background: #cc0000;
+    color: #fff;
+    font-weight: 700;
+    padding: 14px 36px;
+    border-radius: 60px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #990000;
+    transform: scale(1.02);
+}
+
+.btn-grande {
+    font-size: 1.4rem;
+    padding: 18px 48px;
+}
+
+/* ============================================================ */
+/* HEADER */
+/* ============================================================ */
+.header {
+    background: #ffffff;
+    border-bottom: 3px solid #cc0000;
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.logo {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.logo-cpp {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #cc0000;
+    letter-spacing: -1px;
+}
+
+.logo-slogan {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    background: #f5f0e6;
+    padding: 4px 14px;
+    border-radius: 30px;
+    border: 1px solid #e0d5c5;
+}
+
+.nav {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.nav a {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
+}
+
+.nav a:hover {
+    color: #cc0000;
+    border-bottom-color: #cc0000;
+}
+
+/* ============================================================ */
+/* HERO */
+/* ============================================================ */
+.hero {
+    padding: 60px 0 80px;
+    background: #ffffff;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1 1 400px;
+}
+
+.hero-tag {
+    display: inline-block;
+    background: #f5f0e6;
+    color: #cc0000;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+}
+
+.hero-text h1 {
+    font-size: 3.8rem;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+.hero-text h1 .highlight {
+    background: linear-gradient(145deg, #cc0000, #990000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-lema {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 32px;
+}
+
+.hero-image {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(204, 0, 0, 0.15);
+    border: 4px solid #f5f0e6;
+    transition: transform 0.4s ease;
+    max-height: 420px;
+    object-fit: cover;
+}
+
+.hero-image img:hover {
+    transform: scale(1.02);
+}
+
+/* ============================================================ */
+/* CANDIDATOS */
+/* ============================================================ */
+.candidatos {
+    padding: 60px 0;
+    background: #faf8f5;
+    border-top: 2px solid #f0ebe3;
+    border-bottom: 2px solid #f0ebe3;
+}
+
+.candidatos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.candidato-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 32px 24px 28px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.candidato-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(204, 0, 0, 0.08);
+}
+
+.candidato-badge {
+    display: inline-block;
+    background: #cc0000;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 16px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+}
+
+.candidato-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #f5f0e6;
+    margin-bottom: 16px;
+    transition: border-color 0.3s;
+}
+
+.candidato-card:hover .candidato-img {
+    border-color: #cc0000;
+}
+
+.candidato-nombre {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 2px;
+}
+
+.candidato-apodo {
+    font-weight: 700;
+    color: #cc0000;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.candidato-lema {
+    background: #faf8f5;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    margin: 12px 0 8px;
+    border-left: 4px solid #cc0000;
+}
+
+.candidato-desc {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 12px 0 16px;
+}
+
+.candidato-redes {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.candidato-redes a {
+    display: inline-block;
+    background: #f5f0e6;
+    padding: 8px 12px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #333;
+    transition: background 0.3s;
+}
+
+.candidato-redes a:hover {
+    background: #cc0000;
+    color: #fff;
+}
+
+/* ============================================================ */
+/* PROPUSESTAS (DECÁLOGO) */
+/* ============================================================ */
+.propuestas {
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+.propuestas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.propuesta-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #faf8f5;
+    padding: 16px 20px;
+    border-radius: 16px;
+    border: 1px solid #f0ebe3;
+    transition: background 0.2s;
+}
+
+.propuesta-item:hover {
+    background: #fff5f0;
+    border-color: #cc0000;
+}
+
+.propuesta-num {
+    font-weight: 900;
+    font-size: 1.6rem;
+    color: #cc0000;
+    opacity: 0.6;
+    min-width: 48px;
+}
+
+.propuesta-item p {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* ============================================================ */
+/* CTA */
+/* ============================================================ */
+.cta {
+    padding: 60px 0;
+    background: #faf8f5;
+    text-align: center;
+    border-top: 2px solid #f0ebe3;
+}
+
+.cta h2 {
+    font-size: 2.6rem;
+    margin-bottom: 8px;
+}
+
+.cta h2 span {
+    color: #cc0000;
+}
+
+.cta p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 24px;
+}
+
+.cta-contador {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.cta-contador span {
+    color: #cc0000;
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+/* ============================================================ */
+/* FOOTER */
+/* ============================================================ */
+.footer {
+    background: #1a1a1a;
+    color: #aaa;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.footer strong {
+    color: #ffffff;
+}
+
+.footer-copy {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* ============================================================ */
+/* RESPONSIVE */
+/* ============================================================ */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .nav {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.6rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .candidatos-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .propuestas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .btn-grande {
+        font-size: 1.1rem;
+        padding: 14px 30px;
+    }
+
+    .logo-cpp {
+        font-size: 1.6rem;
+    }
+
+    .logo-slogan {
+        font-size: 0.75rem;
+    }
+}
