@@ -25,6 +25,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 img {
     max-width: 100%;
     display: block;
@@ -258,6 +262,44 @@ h1, h2, h3, h4 {
 }
 
 /* ============================================================
+   HERO PARTICLES
+   ============================================================ */
+.hero-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* ============================================================
    HERO — CAROUSEL BACKGROUND
    ============================================================ */
 .hero {
@@ -275,7 +317,7 @@ h1, h2, h3, h4 {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 1;
 }
 
 .carousel-slide {
@@ -295,20 +337,13 @@ h1, h2, h3, h4 {
     opacity: 1;
 }
 
-/* Parallax effect on hero */
-.hero.parallax .hero-carousel {
-    transform: translateY(0);
-    will-change: transform;
-    transition: transform 0.1s linear;
-}
-
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 2;
     background: linear-gradient(
         to right,
         rgba(0, 0, 0, 0.75) 0%,
@@ -319,7 +354,7 @@ h1, h2, h3, h4 {
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     max-width: 720px;
 }
 
@@ -400,6 +435,322 @@ h1, h2, h3, h4 {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* ============================================================
+   ONPE — RESULTADOS (SIDE BY SIDE)
+   ============================================================ */
+.resultados {
+    background: #faf8f5;
+}
+
+.onpe-card {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0d5c5;
+}
+
+.onpe-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 28px;
+    background: linear-gradient(135deg, #1a1a1a, #2a1a1a);
+    color: #fff;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.onpe-header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.onpe-sello {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    color: #cc0000;
+    font-weight: 900;
+    font-size: 0.75rem;
+    border-radius: 50%;
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
+    border: 3px solid #cc0000;
+}
+
+.onpe-title {
+    display: block;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.onpe-subtitle {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 2px;
+}
+
+.onpe-date {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+}
+
+/* ---------- ACTAS BAR ---------- */
+.onpe-actas {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 28px;
+    background: #fff8f5;
+    border-bottom: 1px solid #f0ebe3;
+    font-size: 0.85rem;
+    color: #555;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.onpe-actas strong {
+    color: #cc0000;
+}
+
+/* ---------- CANDIDATES GRID (SIDE BY SIDE) ---------- */
+.onpe-candidates-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 20px;
+    padding: 32px 28px 24px;
+    align-items: center;
+}
+
+.onpe-candidate-card {
+    text-align: center;
+    padding: 24px 20px 20px;
+    border-radius: 18px;
+    border: 2px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.onpe-candidate-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.onpe-ccp {
+    border-color: #cc0000;
+    background: linear-gradient(180deg, #fff5f0, #fff);
+}
+
+.onpe-tocino {
+    border-color: #ddd;
+    background: #fafafa;
+}
+
+.onpe-candidate-photo {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #f5f0e6;
+}
+
+.onpe-ccp .onpe-candidate-photo {
+    border-color: #ffd7cc;
+}
+
+.onpe-candidate-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.onpe-candidate-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0ebe3;
+    padding: 12px;
+}
+
+.onpe-candidate-placeholder svg {
+    width: 100%;
+    height: 100%;
+}
+
+.onpe-rank {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #cc0000;
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #fff;
+}
+
+.onpe-tocino .onpe-rank {
+    background: #888;
+}
+
+.onpe-candidate-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.onpe-candidate-party {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.onpe-candidate-numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.onpe-candidate-percent {
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #1a1a1a;
+    line-height: 1.2;
+}
+
+.onpe-ccp .onpe-candidate-percent {
+    color: #cc0000;
+}
+
+.onpe-candidate-votos {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+}
+
+/* ---------- DIVIDER ---------- */
+.onpe-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.onpe-divider-text {
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #ccc;
+    letter-spacing: 2px;
+}
+
+/* ---------- BARRA DE PROGRESO ---------- */
+.onpe-bar-container {
+    padding: 4px 28px 24px;
+}
+
+.onpe-bar-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.onpe-bar-track {
+    position: relative;
+    height: 32px;
+    background: #e0e0e0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.onpe-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #cc0000, #ff4444);
+    border-radius: 16px;
+    transition: width 2s ease;
+    width: 0%;
+}
+
+.onpe-bar-marker {
+    position: absolute;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: #1a1a1a;
+    z-index: 2;
+    transform: translateX(-50%);
+}
+
+.onpe-bar-text {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.85rem;
+    z-index: 3;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    white-space: nowrap;
+}
+
+.onpe-bar-sub {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.onpe-bar-sub span {
+    color: #cc0000;
+    font-weight: 700;
+}
+
+.onpe-bar-sub-detail {
+    display: block;
+    font-size: 0.75rem;
+    color: #aaa;
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+.onpe-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 28px;
+    background: #faf8f5;
+    border-top: 1px solid #eee;
+    font-size: 0.75rem;
+    color: #999;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 /* ============================================================
@@ -577,34 +928,181 @@ h1, h2, h3, h4 {
     margin-bottom: 18px;
 }
 
-.candidato-redes {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
+.btn-conoce {
+    display: inline-block;
+    background: transparent;
+    color: #cc0000;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 10px 28px;
+    border-radius: 30px;
+    border: 2px solid #cc0000;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.candidato-redes a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: #f5f0e6;
-    border-radius: 50%;
-    color: #333;
-    transition: all 0.3s;
-    padding: 10px;
-}
-
-.candidato-redes a svg {
-    width: 100%;
-    height: 100%;
-}
-
-.candidato-redes a:hover {
+.btn-conoce:hover {
     background: #cc0000;
     color: #fff;
-    transform: scale(1.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
+}
+
+/* ============================================================
+   MODALES
+   ============================================================ */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal {
+    background: #fff;
+    border-radius: 24px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.modal-overlay.active .modal {
+    transform: scale(1) translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    font-size: 2rem;
+    color: #999;
+    cursor: pointer;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    background: #f5f0e6;
+    color: #1a1a1a;
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 400px;
+}
+
+.modal-img {
+    border-radius: 24px 0 0 24px;
+    overflow: hidden;
+    background: #faf8f5;
+}
+
+.modal-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-content {
+    padding: 36px 32px;
+}
+
+.modal-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #cc0000, #990000);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 4px 16px;
+    border-radius: 30px;
+    margin-bottom: 12px;
+}
+
+.modal-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+
+.modal-lema {
+    font-style: italic;
+    color: #cc0000;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-bio p {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.modal-propuestas {
+    margin-top: 20px;
+}
+
+.modal-propuestas h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #cc0000;
+    margin-bottom: 12px;
+}
+
+.modal-propuestas ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-propuestas ul li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.88rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 6px;
+}
+
+.modal-propuestas ul li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #cc0000;
+    font-weight: 700;
 }
 
 /* ============================================================
@@ -659,6 +1157,156 @@ h1, h2, h3, h4 {
     font-size: 0.9rem;
     color: #555;
     line-height: 1.6;
+}
+
+/* ============================================================
+   TESTIMONIOS — MURO CONTINUO
+   ============================================================ */
+.testimonios {
+    background: #ffffff;
+    overflow: hidden;
+    padding-bottom: 80px;
+}
+
+.testimonios-wall {
+    overflow: hidden;
+    position: relative;
+    padding: 8px 0;
+}
+
+.testimonios-wall::before,
+.testimonios-wall::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.testimonios-wall::before {
+    left: 0;
+    background: linear-gradient(90deg, #fff, transparent);
+}
+
+.testimonios-wall::after {
+    right: 0;
+    background: linear-gradient(270deg, #fff, transparent);
+}
+
+.testimonios-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollTestimonios 60s linear infinite;
+}
+
+.testimonios-wall:hover .testimonios-track {
+    animation-play-state: paused;
+}
+
+@keyframes scrollTestimonios {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.testimonio-card {
+    width: 360px;
+    flex-shrink: 0;
+    display: flex;
+    gap: 16px;
+    background: #faf8f5;
+    border-radius: 18px;
+    padding: 22px 24px;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.testimonio-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    transform: translateY(-3px);
+}
+
+.testimonio-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #fff;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.testimonio-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.testimonio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.testimonio-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.testimonio-user {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.testimonio-date {
+    display: block;
+    font-size: 0.7rem;
+    color: #bbb;
+    margin-bottom: 6px;
+}
+
+.testimonio-text {
+    font-size: 0.88rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.testimonio-likes {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.testimonio-like-icon {
+    font-size: 0.95rem;
+}
+
+.testimonio-like-count {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 600;
+}
+
+.testimonios-hint {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-top: 32px;
+    font-weight: 500;
 }
 
 /* ============================================================
@@ -795,7 +1443,7 @@ h1, h2, h3, h4 {
 }
 
 /* ============================================================
-   CONFETTI KEYFRAMES (injected via JS fallback)
+   CONFETTI KEYFRAMES
    ============================================================ */
 @keyframes caerConfeti {
     0% {
@@ -818,6 +1466,15 @@ h1, h2, h3, h4 {
         padding: 70px 0;
     }
 
+    .modal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-img {
+        border-radius: 24px 24px 0 0;
+        max-height: 240px;
+    }
+
     .candidatos-grid {
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 28px;
@@ -825,6 +1482,20 @@ h1, h2, h3, h4 {
 
     .propuestas-grid {
         grid-template-columns: 1fr;
+    }
+
+    .onpe-candidates-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .onpe-divider {
+        padding: 4px 0;
+    }
+
+    .onpe-candidate-card {
+        max-width: 340px;
+        margin: 0 auto;
     }
 }
 
@@ -915,6 +1586,48 @@ h1, h2, h3, h4 {
         padding: 18px 20px;
     }
 
+    .onpe-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .onpe-actas {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .onpe-candidate-photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .onpe-candidate-percent {
+        font-size: 1.5rem;
+    }
+
+    .onpe-bar-container {
+        padding: 4px 16px 20px;
+    }
+
+    .onpe-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .testimonios-wall::before,
+    .testimonios-wall::after {
+        width: 30px;
+    }
+
+    .testimonio-card {
+        width: 300px;
+        padding: 18px 18px;
+    }
+
+    .testimonios-track {
+        animation-duration: 40s;
+    }
+
     .cta-contador-num {
         font-size: 2.8rem;
     }
@@ -922,6 +1635,18 @@ h1, h2, h3, h4 {
     .btn-grande {
         font-size: 1.1rem;
         padding: 16px 40px;
+    }
+
+    .modal {
+        max-height: 85vh;
+    }
+
+    .modal-content {
+        padding: 24px 20px;
+    }
+
+    .modal-overlay {
+        padding: 16px;
     }
 }
 
@@ -946,5 +1671,20 @@ h1, h2, h3, h4 {
 
     .cta-contador-num {
         font-size: 2.2rem;
+    }
+
+    .onpe-header-left {
+        flex-wrap: wrap;
+    }
+
+    .onpe-sello {
+        width: 40px;
+        height: 40px;
+        font-size: 0.65rem;
+    }
+
+    .testimonio-card {
+        width: 270px;
+        padding: 16px 14px;
     }
 }

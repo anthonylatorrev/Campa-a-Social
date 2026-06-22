@@ -10,6 +10,9 @@
 </head>
 <body>
 
+    <!-- ===== PARTICLES HERO ===== -->
+    <div class="hero-particles" id="heroParticles"></div>
+
     <!-- ===== HEADER ===== -->
     <header class="header" id="header">
         <div class="container header-inner">
@@ -22,9 +25,11 @@
             </button>
             <nav class="nav" id="nav">
                 <a href="#inicio">Inicio</a>
+                <a href="#resultados">Resultados</a>
                 <a href="#candidatos">Candidatos</a>
                 <a href="#propuestas">Plan de Gobierno</a>
                 <a href="#peru">Nuestro Perú</a>
+                <a href="#testimonios">Opiniones</a>
                 <a href="#votar">Vota</a>
             </nav>
         </div>
@@ -33,7 +38,7 @@
     <!-- ===== HERO ===== -->
     <section class="hero" id="inicio">
         <div class="hero-carousel" id="heroCarousel">
-            <div class="carousel-slide active" style="background-image: url('img/machupicchu.jpg')"></div>
+            <div class="carousel-slide active" style="background-image: url('img/machupichu.jpg')"></div>
             <div class="carousel-slide" style="background-image: url('img/bandera-peru.jpg')"></div>
             <div class="carousel-slide" style="background-image: url('img/peru-paisaje.jpg')"></div>
         </div>
@@ -49,6 +54,95 @@
         </div>
     </section>
 
+    <!-- ===== RESULTADOS ONPE ===== -->
+    <section class="section resultados" id="resultados">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="section-title">Resultados <span>Oficiales</span></h2>
+                <p class="section-sub">Avance de la ONPE al 99.692% de actas procesadas</p>
+            </div>
+            <div class="onpe-card fade-up">
+                <div class="onpe-header">
+                    <div class="onpe-header-left">
+                        <span class="onpe-sello">ONPE</span>
+                        <div>
+                            <span class="onpe-title">Elección de Fórmula Presidencial</span>
+                            <span class="onpe-subtitle">Elecciones Generales 2026 · Segunda Vuelta</span>
+                        </div>
+                    </div>
+                    <span class="onpe-date">ACTUALIZADO AL 22/06/2026 A LAS 11:00:25 a. m.</span>
+                </div>
+
+                <div class="onpe-actas">
+                    <span>Actas contabilizadas: <strong>99.692%</strong> (92,766 de 93,053)</span>
+                    <span>Actas pendientes: <strong>287</strong></span>
+                </div>
+
+                <div class="onpe-candidates-grid">
+                    <div class="onpe-candidate-card onpe-ccp">
+                        <div class="onpe-candidate-photo">
+                            <img src="img/bannerchino.jpg" alt="Stiven Cuentas Ramos" />
+                            <span class="onpe-rank">1</span>
+                        </div>
+                        <h3 class="onpe-candidate-name">Stiven Cuentas Ramos</h3>
+                        <span class="onpe-candidate-party">CPP · Con Progreso se Progresa</span>
+                        <div class="onpe-candidate-numbers">
+                            <span class="onpe-candidate-percent">50.111%</span>
+                            <span class="onpe-candidate-votos" id="votosCpp">0</span>
+                        </div>
+                    </div>
+
+                    <div class="onpe-divider">
+                        <span class="onpe-divider-text">VS</span>
+                    </div>
+
+                    <div class="onpe-candidate-card onpe-tocino">
+                        <div class="onpe-candidate-photo">
+                            <div class="onpe-candidate-placeholder">
+                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="35" r="22" fill="#e0d5c5"/>
+                                    <ellipse cx="50" cy="82" rx="32" ry="28" fill="#e0d5c5"/>
+                                    <circle cx="42" cy="30" r="3" fill="#1a1a1a"/>
+                                    <circle cx="58" cy="30" r="3" fill="#1a1a1a"/>
+                                    <ellipse cx="50" cy="42" rx="6" ry="4" fill="#1a1a1a"/>
+                                    <path d="M44 48 Q50 54 56 48" stroke="#1a1a1a" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <span class="onpe-rank">2</span>
+                        </div>
+                        <h3 class="onpe-candidate-name">George Pig</h3>
+                        <span class="onpe-candidate-party">TOCINO · Todos Unidos</span>
+                        <div class="onpe-candidate-numbers">
+                            <span class="onpe-candidate-percent">49.889%</span>
+                            <span class="onpe-candidate-votos" id="votosTocino">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="onpe-bar-container">
+                    <div class="onpe-bar-labels">
+                        <span>CPP: 50.111%</span>
+                        <span>TOCINO: 49.889%</span>
+                    </div>
+                    <div class="onpe-bar-track">
+                        <div class="onpe-bar-fill" id="onpeBarFill" style="width: 0%;"></div>
+                        <div class="onpe-bar-marker" style="left: 50%;"></div>
+                        <span class="onpe-bar-text" id="onpeBarText">0%</span>
+                    </div>
+                    <div class="onpe-bar-sub">
+                        Diferencia: <span id="diferenciaVotos">0</span> votos
+                        <span class="onpe-bar-sub-detail">(0.222 puntos porcentuales)</span>
+                    </div>
+                </div>
+
+                <div class="onpe-footer">
+                    <span>Fuente: ONPE · 99.692% de actas procesadas</span>
+                    <span>Actualizado: 22/06/2026 11:00:25 a. m.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== NUESTRO PERÚ ===== -->
     <section class="section peru" id="peru">
         <div class="container">
@@ -59,7 +153,7 @@
             <div class="peru-grid">
                 <div class="peru-card fade-up">
                     <div class="peru-img">
-                        <img src="img/machupicchu.jpg" alt="Machu Picchu" loading="lazy" />
+                        <img src="img/machupichu.jpg" alt="Machu Picchu" loading="lazy" />
                     </div>
                     <div class="peru-body">
                         <h3>Machu Picchu</h3>
@@ -105,10 +199,7 @@
                     <h3 class="candidato-nombre">Stiven Cuentas Ramos</h3>
                     <p class="candidato-lema">"Juntos por un Santutis Abierto — el Perú que merecemos"</p>
                     <p class="candidato-desc">Líder con visión de futuro, comprometido con la transparencia y el desarrollo sostenible. Cree firmemente que el progreso se construye desde la unidad y el diálogo.</p>
-                    <div class="candidato-redes">
-                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-                        <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-                    </div>
+                    <button class="btn-conoce" data-modal="modalStiven">Conoce más</button>
                 </div>
 
                 <div class="candidato-card fade-up">
@@ -119,10 +210,7 @@
                     <h3 class="candidato-nombre">Dudú Lizarzaburu Flores</h3>
                     <p class="candidato-lema">"La cultura es el alma de un pueblo. Hagamos que se escuche"</p>
                     <p class="candidato-desc">Gestor cultural y artista comprometido con la descentralización del arte. Cree en una política cultural que llegue a cada rincón del Perú, sin elitismos ni exclusiones.</p>
-                    <div class="candidato-redes">
-                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-                        <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-                    </div>
+                    <button class="btn-conoce" data-modal="modalDudu">Conoce más</button>
                 </div>
 
                 <div class="candidato-card fade-up">
@@ -133,15 +221,104 @@
                     <h3 class="candidato-nombre">Anthony La Torre Velazco</h3>
                     <p class="candidato-lema">"Tecnología para cerrar brechas, no para crearlas"</p>
                     <p class="candidato-desc">Ingeniero de sistemas con experiencia en innovación digital. Convencido de que la tecnología debe ser una herramienta de inclusión y desarrollo para todos los peruanos.</p>
-                    <div class="candidato-redes">
-                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-                        <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-                    </div>
+                    <button class="btn-conoce" data-modal="modalAnthony">Conoce más</button>
                 </div>
 
             </div>
         </div>
     </section>
+
+    <!-- ===== MODALES DE CANDIDATOS ===== -->
+
+    <div class="modal-overlay" id="modalStiven">
+        <div class="modal">
+            <button class="modal-close" aria-label="Cerrar">&times;</button>
+            <div class="modal-grid">
+                <div class="modal-img">
+                    <img src="img/bannerchino.jpg" alt="Stiven Cuentas Ramos" />
+                </div>
+                <div class="modal-content">
+                    <span class="modal-badge">Candidato a la Presidencia</span>
+                    <h2>Stiven Cuentas Ramos</h2>
+                    <p class="modal-lema">"Juntos por un Santutis Abierto — el Perú que merecemos"</p>
+                    <div class="modal-bio">
+                        <p>Stiven Cuentas Ramos nació y creció en el corazón del Perú, forjando su carácter entre la tradición y la modernidad. Desde muy joven mostró inclinación por el servicio público y la gestión de equipos, liderando proyectos comunitarios en su distrito antes de cumplir los 25 años.</p>
+                        <p>Su trayectoria incluye experiencia en gestión municipal, coordinación de programas sociales y desarrollo de iniciativas de transparencia gubernamental. Es conocido por su estilo directo y su capacidad para tender puentes entre sectores políticos opuestos.</p>
+                    </div>
+                    <div class="modal-propuestas">
+                        <h4>Propuestas principales</h4>
+                        <ul>
+                            <li>Reforma integral del sistema de salud pública con enfoque preventivo</li>
+                            <li>Plan nacional de digitalización de trámites estatales para eliminar la burocracia</li>
+                            <li>Programa de vivienda social con créditos blandos para jóvenes</li>
+                            <li>Transparencia total: todas las compras del Estado en plataforma abierta</li>
+                            <li>Reforma educativa con énfasis en ciencia, tecnología y pensamiento crítico</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalDudu">
+        <div class="modal">
+            <button class="modal-close" aria-label="Cerrar">&times;</button>
+            <div class="modal-grid">
+                <div class="modal-img">
+                    <img src="img/bannerdudu.jpg" alt="Dudú Lizarzaburu Flores" />
+                </div>
+                <div class="modal-content">
+                    <span class="modal-badge">Ministro de Cultura</span>
+                    <h2>Dudú Lizarzaburu Flores</h2>
+                    <p class="modal-lema">"La cultura es el alma de un pueblo. Hagamos que se escuche"</p>
+                    <div class="modal-bio">
+                        <p>Dudú Lizarzaburu Flores es gestor cultural de formación y artista por convicción. Ha trabajado en la promoción de artistas emergentes en regiones del interior del país, convencido de que el talento peruano no se limita a los circuitos tradicionales de Lima.</p>
+                        <p>Su experiencia incluye la dirección de festivales culturales descentralizados, talleres de arte para jóvenes en zonas vulnerables y la producción de eventos que fusionan la música tradicional peruana con expresiones contemporáneas.</p>
+                    </div>
+                    <div class="modal-propuestas">
+                        <h4>Propuestas principales</h4>
+                        <ul>
+                            <li>Creación del Fondo Nacional de Cultura con presupuesto directo para regiones</li>
+                            <li>Programa de residencias artísticas en provincias con intercambio internacional</li>
+                            <li>Declaración de la música andina como Patrimonio Cultural de la Nación</li>
+                            <li>Plataforma digital única para visibilizar artistas peruanos a nivel global</li>
+                            <li>Educación artística obligatoria en el currículo escolar nacional</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalAnthony">
+        <div class="modal">
+            <button class="modal-close" aria-label="Cerrar">&times;</button>
+            <div class="modal-grid">
+                <div class="modal-img">
+                    <img src="img/banneranthony.jpg" alt="Anthony La Torre Velazco" />
+                </div>
+                <div class="modal-content">
+                    <span class="modal-badge">Ministro de Tecnología</span>
+                    <h2>Anthony La Torre Velazco</h2>
+                    <p class="modal-lema">"Tecnología para cerrar brechas, no para crearlas"</p>
+                    <div class="modal-bio">
+                        <p>Anthony La Torre Velazco es ingeniero de sistemas con especialización en transformación digital e inteligencia artificial. Ha liderado equipos de desarrollo en el sector privado y ha sido consultor en proyectos de modernización del Estado.</p>
+                        <p>Su enfoque combina la rigurosidad técnica con una profunda vocación social: cree que la tecnología solo tiene sentido cuando mejora la calidad de vida de las personas, especialmente de aquellas en situación de vulnerabilidad.</p>
+                    </div>
+                    <div class="modal-propuestas">
+                        <h4>Propuestas principales</h4>
+                        <ul>
+                            <li>Internet gratuito como derecho fundamental en plazas y centros educativos</li>
+                            <li>Programa nacional de alfabetización digital para adultos mayores</li>
+                            <li>Plataforma única de identidad digital para acceso a servicios del Estado</li>
+                            <li>Centro de Ciberseguridad Nacional para proteger datos de los ciudadanos</li>
+                            <li>Incentivos tributarios para empresas tech que inviertan en regiones</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== PLAN DE GOBIERNO ===== -->
     <section class="section propuestas" id="propuestas">
@@ -233,6 +410,182 @@
                 </div>
 
             </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIOS / MURO CONTINUO ===== -->
+    <section class="section testimonios" id="testimonios">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="section-title">Lo que dicen los <span>ciudadanos</span></h2>
+                <p class="section-sub">El muro de opiniones de los peruanos en redes sociales</p>
+            </div>
+            <div class="testimonios-wall fade-up">
+                <div class="testimonios-track" id="testimoniosTrack">
+
+                    <div class="testimonio-card">
+                        <div class="testimonio-avatar" style="background:#cc0000;">MQ</div>
+                        <div class="testimonio-body">
+                            <div class="testimonio-header">
+                                <span class="testimonio-name">María Quispe</span>
+                                <span class="testimonio-user">@maria_quispe</span>
+                            </div>
+                            <span class="testimonio-date">22 jun · 10:45 a. m.</span>
+                            <p class="testimonio-text">Stiven es la única opción seria. Ya basta de payasos en el poder. Sus propuestas de educación digital son exactamente lo que necesitamos.</p>
+                            <div class="testimonio-likes">
+                                <span class="testimonio-like-icon">&#x1F44D;</span>
+                                <span class="testimonio-like-count">892</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonio-card">
+                        <div class="testimonio-avatar" style="background:#ffd700; color:#1a1a1a;">CM</div>
+                        <div class="testimonio-body">
+                            <div class="testimonio-header">
+                                <span class="testimonio-name">Carlos Mendoza</span>
+                                <span class="testimonio-user">@carlos_m</span>
+                            </div>
+                            <span class="testimonio-date">22 jun · 9:32 a. m.</span>
+                            <p class="testimonio-text">No sé si votar por él, pero sus propuestas son mejores que las de los demás. El decálogo me pareció sólido, especialmente salud mental.</p>
+                            <div class="testimonio-likes">
+                                <span class="testimonio-like-icon">&#x1F44D;</span>
+                                <span class="testimonio-like-count">445</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonio-card">
+                        <div class="testimonio-avatar" style="background:#990000;">LT</div>
+                        <div class="testimonio-body">
+                            <div class="testimonio-header">
+                                <span class="testimonio-name">Lucía Torres</span>
+                                <span class="testimonio-user">@lucia_tech</span>
+                            </div>
+                            <span class="testimonio-date">22 jun · 8:15 a. m.</span>
+                            <p class="testimonio-text">Finalmente alguien que habla de tecnología y transformación digital como ejes de gobierno. Anthony La Torre sabe de lo que habla.</p>
+                            <div class="testimonio-likes">
+                                <span class="testimonio-like-icon">&#x1F44D;</span>
+                                <span class="testimonio-like-count">1.2k</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonio-card">
+                        <div class="testimonio-avatar" style="background:#666;">GF</div>
+                        <div class="testimonio-body">
+                            <div class="testimonio-header">
+                                <span class="testimonio-name">George Fan</span>
+                                <span class="testimonio-user">@george_fan</span>
+                            </div>
+                            <span class="testimonio-date">22 jun · 7:50 a. m.</span>
+                            <p class="testimonio-text">George Pig tiene más experiencia política. Esto es puro show mediático. No me convencen con promesas vacías.</p>
+                            <div class="testimonio-likes">
+                                <span class="testimonio-like-icon">&#x1F44D;</span>
+                                <span class="testimonio-like-count">567</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonio-card">
+                        <div class="testimonio-avatar" style="background:#cc0000;">RA</div>
+                        <div class="testimonio-body">
+                            <div class="testimonio-header">
+                                <span class="testimonio-name">Rosa Ángeles</span>
+                                <span class="testimonio-user">@rosaura_andes</span>
+                            </div>
+                            <span class="testimonio-date">21 jun · 10:20 p. m.</span>
+                            <p class="testimonio-text">Me gusta que hablen de descentralización cultural. Soy de Cajamarca y nunca un político ha puesto un pie aquí. Veremos si cumplen.</p>
+                            <div class="testimonio-likes">
+                                <span class="testimonio-like-icon">&#x1F44D;</span>
+                                <span class="testimonio-like-count">234</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonio-card">
+                        <div class="testimonio-avatar" style="background:#990000;">PL</div>
+                        <div class="testimonio-body">
+                            <div class="testimonio-header">
+                                <span class="testimonio-name">Pedro Lince</span>
+                                <span class="testimonio-user">@pedro_lince</span>
+                            </div>
+                            <span class="testimonio-date">21 jun · 8:05 p. m.</span>
+                            <p class="testimonio-text">He investigado sus propuestas una por una. Tienen pies y cabeza. No son ocurrencias, son políticas públicas bien pensadas.</p>
+                            <div class="testimonio-likes">
+                                <span class="testimonio-like-icon">&#x1F44D;</span>
+                                <span class="testimonio-like-count">1.8k</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonio-card">
+                        <div class="testimonio-avatar" style="background:#444;">AC</div>
+                        <div class="testimonio-body">
+                            <div class="testimonio-header">
+                                <span class="testimonio-name">Ana Contreras</span>
+                                <span class="testimonio-user">@ana_contreras</span>
+                            </div>
+                            <span class="testimonio-date">21 jun · 6:30 p. m.</span>
+                            <p class="testimonio-text">¿Otro político más? Estoy harta de promesas que se las lleva el viento. Todos dicen lo mismo antes de llegar al poder.</p>
+                            <div class="testimonio-likes">
+                                <span class="testimonio-like-icon">&#x1F44D;</span>
+                                <span class="testimonio-like-count">2.1k</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonio-card">
+                        <div class="testimonio-avatar" style="background:#cc0000;">JS</div>
+                        <div class="testimonio-body">
+                            <div class="testimonio-header">
+                                <span class="testimonio-name">José Sierra</span>
+                                <span class="testimonio-user">@jose_sierra</span>
+                            </div>
+                            <span class="testimonio-date">21 jun · 5:15 p. m.</span>
+                            <p class="testimonio-text">El decálogo me convenció. Educación digital y salud mental son temas que ningún otro candidato está tocando. Van a tener mi voto.</p>
+                            <div class="testimonio-likes">
+                                <span class="testimonio-like-icon">&#x1F44D;</span>
+                                <span class="testimonio-like-count">678</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonio-card">
+                        <div class="testimonio-avatar" style="background:#ffd700; color:#1a1a1a;">MT</div>
+                        <div class="testimonio-body">
+                            <div class="testimonio-header">
+                                <span class="testimonio-name">Miguel Torres</span>
+                                <span class="testimonio-user">@miguel_t</span>
+                            </div>
+                            <span class="testimonio-date">21 jun · 4:00 p. m.</span>
+                            <p class="testimonio-text">No los conocía hasta hoy, pero su plan de gobierno es el más sólido que he leído en años. Me gusta que sean realistas.</p>
+                            <div class="testimonio-likes">
+                                <span class="testimonio-like-icon">&#x1F44D;</span>
+                                <span class="testimonio-like-count">345</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonio-card">
+                        <div class="testimonio-avatar" style="background:#990000;">CV</div>
+                        <div class="testimonio-body">
+                            <div class="testimonio-header">
+                                <span class="testimonio-name">Cultura Viva</span>
+                                <span class="testimonio-user">@cultura_viva</span>
+                            </div>
+                            <span class="testimonio-date">21 jun · 2:45 p. m.</span>
+                            <p class="testimonio-text">Dudú como ministro de cultura sería un gran acierto. Alguien que entiende el arte más allá de Lima. Apoyo total a esta propuesta.</p>
+                            <div class="testimonio-likes">
+                                <span class="testimonio-like-icon">&#x1F44D;</span>
+                                <span class="testimonio-like-count">901</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <p class="testimonios-hint fade-up">Desliza para ver más comentarios &#8594;</p>
         </div>
     </section>
 

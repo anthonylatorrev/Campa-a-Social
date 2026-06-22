@@ -1,10 +1,43 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // ==========================================================
+    // HERO PARTICLES
+    // ==========================================================
+    var particlesContainer = document.getElementById('heroParticles');
+
+    if (particlesContainer) {
+        var colors = ['#cc0000', '#ffd700', '#ffffff', '#ff4444', '#ffaa00'];
+        var particleCount = 30;
+
+        for (var i = 0; i < particleCount; i++) {
+            var particle = document.createElement('div');
+            particle.className = 'particle';
+            var size = Math.random() * 6 + 2;
+            var left = Math.random() * 100;
+            var animDuration = Math.random() * 12 + 8;
+            var delay = Math.random() * 15;
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            var opacity = Math.random() * 0.4 + 0.1;
+
+            particle.style.cssText = [
+                'left: ' + left + '%',
+                'width: ' + size + 'px',
+                'height: ' + size + 'px',
+                'background: ' + color,
+                'opacity: ' + opacity,
+                'animation-duration: ' + animDuration + 's',
+                'animation-delay: ' + delay + 's'
+            ].join(';');
+
+            particlesContainer.appendChild(particle);
+        }
+    }
+
+    // ==========================================================
     // MOBILE NAV TOGGLE
     // ==========================================================
-    const navToggle = document.getElementById('navToggle');
-    const nav = document.getElementById('nav');
+    var navToggle = document.getElementById('navToggle');
+    var nav = document.getElementById('nav');
 
     if (navToggle) {
         navToggle.addEventListener('click', function () {
@@ -13,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Close nav on link click
     nav.querySelectorAll('a').forEach(function (link) {
         link.addEventListener('click', function () {
             nav.classList.remove('open');
@@ -39,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // TYPING EFFECT ON SLOGAN
     // ==========================================================
     var typingElement = document.getElementById('typingText');
+
     if (typingElement) {
         var text = '"El cambio que el Perú necesita"';
         var charIndex = 0;
@@ -58,7 +91,111 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================================================
-    // VOTE COUNTER (localStorage)
+    // DUPLICATE TESTIMONIALS FOR SEAMLESS LOOP
+    // ==========================================================
+    var testimoniosTrack = document.getElementById('testimoniosTrack');
+
+    if (testimoniosTrack) {
+        var cards = testimoniosTrack.querySelectorAll('.testimonio-card');
+        cards.forEach(function (card) {
+            var clone = card.cloneNode(true);
+            testimoniosTrack.appendChild(clone);
+        });
+    }
+
+    // ==========================================================
+    // ONPE ANIMATED COUNTERS + PROGRESS BAR
+    // ==========================================================
+    var votosCppEl = document.getElementById('votosCpp');
+    var votosTocinoEl = document.getElementById('votosTocino');
+    var onpeBarFill = document.getElementById('onpeBarFill');
+    var onpeBarText = document.getElementById('onpeBarText');
+    var diferenciaEl = document.getElementById('diferenciaVotos');
+    var resultadosSection = document.getElementById('resultados');
+
+    var votosCppTarget = 9188805;
+    var votosTocinoTarget = 9148000;
+    var diferenciaTarget = votosCppTarget - votosTocinoTarget;
+
+    var onpeAnimated = false;
+
+    function animateOnpe() {
+        if (onpeAnimated) return;
+        onpeAnimated = true;
+
+        animateNumber(votosCppEl, 0, votosCppTarget, 2000);
+        animateNumber(votosTocinoEl, 0, votosTocinoTarget, 2000);
+        animateNumber(diferenciaEl, 0, diferenciaTarget, 2000);
+
+        setTimeout(function () {
+            onpeBarFill.style.width = '50.111%';
+        }, 300);
+
+        animateBarText();
+    }
+
+    function animateBarText() {
+        var startPercent = 0;
+        var targetPercent = 50.111;
+        var duration = 1500;
+        var startTime = null;
+
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = Math.min((timestamp - startTime) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            var current = (startPercent + (targetPercent - startPercent) * eased).toFixed(3);
+            onpeBarText.textContent = current + '%';
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                onpeBarText.textContent = targetPercent.toFixed(3) + '%';
+            }
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    if (resultadosSection && 'IntersectionObserver' in window) {
+        var onpeObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    animateOnpe();
+                    onpeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        onpeObserver.observe(resultadosSection);
+    }
+
+    // ==========================================================
+    // ANIMATED NUMBER HELPER
+    // ==========================================================
+    function animateNumber(element, start, end, duration) {
+        if (!element) return;
+        var startTime = null;
+
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = Math.min((timestamp - startTime) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            var current = Math.round(start + (end - start) * eased);
+
+            element.textContent = current.toLocaleString('es-PE');
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                element.textContent = end.toLocaleString('es-PE');
+            }
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    // ==========================================================
+    // VOTE COUNTER (localStorage) + PAGE LOAD ANIMATION
     // ==========================================================
     var contadorSpan = document.getElementById('contadorVotos');
     var btnVotar = document.getElementById('btnVotar');
@@ -70,7 +207,10 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         votos = parseInt(votos, 10);
     }
-    contadorSpan.textContent = votos;
+
+    if (contadorSpan) {
+        animateNumber(contadorSpan, 0, votos, 1500);
+    }
 
     if (btnVotar) {
         btnVotar.addEventListener('click', function () {
@@ -78,10 +218,8 @@ document.addEventListener('DOMContentLoaded', function () {
             votos++;
             localStorage.setItem('votosCPP', String(votos));
 
-            // Animated counter
-            animateCounter(contadorSpan, oldCount, votos);
+            animateNumber(contadorSpan, oldCount, votos, 800);
 
-            // Button feedback
             var textoOriginal = this.textContent;
             this.textContent = 'Voto registrado';
             this.style.background = 'linear-gradient(135deg, #006600, #004400)';
@@ -99,32 +237,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Animated counter function
-    function animateCounter(element, start, end) {
-        var duration = 1000;
-        var startTime = null;
-
-        function step(timestamp) {
-            if (!startTime) startTime = timestamp;
-            var progress = Math.min((timestamp - startTime) / duration, 1);
-            var eased = 1 - Math.pow(1 - progress, 3);
-            var current = Math.round(start + (end - start) * eased);
-            element.textContent = current;
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            }
-        }
-
-        requestAnimationFrame(step);
-    }
-
     // ==========================================================
     // CONFETTI
     // ==========================================================
     function lanzarConfeti() {
         var colores = ['#cc0000', '#ffd700', '#ffffff', '#990000', '#ff6600', '#00aa88', '#ff4444'];
 
-        // Add keyframes if not present
         if (!document.getElementById('confeti-keyframes')) {
             var style = document.createElement('style');
             style.id = 'confeti-keyframes';
@@ -184,7 +302,6 @@ document.addEventListener('DOMContentLoaded', function () {
             observer.observe(el);
         });
     } else {
-        // Fallback: show all
         fadeElements.forEach(function (el) {
             el.classList.add('visible');
         });
@@ -221,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================================================
-    // SMOOTH SCROLL FOR NAV (fallback for older browsers)
+    // SMOOTH SCROLL FOR NAV
     // ==========================================================
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
@@ -237,6 +354,55 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             }
         });
+    });
+
+    // ==========================================================
+    // CANDIDATE MODALS
+    // ==========================================================
+    var modalTriggers = document.querySelectorAll('[data-modal]');
+    var modalOverlays = document.querySelectorAll('.modal-overlay');
+    var modalCloseButtons = document.querySelectorAll('.modal-close');
+
+    function openModal(id) {
+        var modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+    }
+
+    function closeAllModals() {
+        modalOverlays.forEach(function (m) {
+            m.classList.remove('active');
+        });
+        document.body.classList.remove('modal-open');
+    }
+
+    modalTriggers.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var modalId = this.getAttribute('data-modal');
+            openModal(modalId);
+        });
+    });
+
+    modalCloseButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            closeAllModals();
+        });
+    });
+
+    modalOverlays.forEach(function (overlay) {
+        overlay.addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeAllModals();
+            }
+        });
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeAllModals();
+        }
     });
 
     console.log('%c CPP · Con Progreso se Progresa ', 'background: #cc0000; color: #ffd700; font-weight: bold; font-size: 16px; padding: 8px 16px; border-radius: 4px;');
