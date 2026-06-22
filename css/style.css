@@ -242,11 +242,12 @@ h1, h2, h3, h4 {
 /* ---------- NAV ---------- */
 .nav {
     display: flex;
-    gap: 28px;
+    gap: 20px;
     align-items: center;
 }
 
-.nav a {
+.nav a,
+.nav-dropdown-toggle {
     color: #1a1a1a;
     font-weight: 600;
     font-size: 0.9rem;
@@ -254,11 +255,73 @@ h1, h2, h3, h4 {
     padding-bottom: 4px;
     border-bottom: 2px solid transparent;
     letter-spacing: 0.02em;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav-dropdown-toggle:hover {
     color: #cc0000;
     border-bottom-color: #cc0000;
+}
+
+.nav-arrow {
+    font-size: 0.55rem;
+    transition: transform 0.25s ease;
+}
+
+.nav-dropdown.open .nav-arrow {
+    transform: rotate(180deg);
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 12px 45px rgba(0, 0, 0, 0.12);
+    padding: 8px 0;
+    min-width: 200px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    border: 1px solid #eee;
+    z-index: 100;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 10px 24px;
+    border-bottom: none !important;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    color: #444;
+}
+
+.nav-dropdown-menu a:hover {
+    background: #faf8f5;
+    color: #cc0000;
+    border-bottom: none !important;
 }
 
 /* ============================================================
@@ -595,8 +658,20 @@ h1, h2, h3, h4 {
 }
 
 .onpe-tocino {
-    border-color: #ddd;
-    background: #fafafa;
+    border-color: #0044cc;
+    background: linear-gradient(180deg, #eef4ff, #fff);
+}
+
+.onpe-tocino .onpe-candidate-photo {
+    border-color: #cce0ff;
+}
+
+.onpe-tocino .onpe-candidate-percent {
+    color: #0044cc;
+}
+
+.onpe-tocino .onpe-rank {
+    background: #0044cc;
 }
 
 .onpe-candidate-photo {
@@ -649,10 +724,6 @@ h1, h2, h3, h4 {
     align-items: center;
     justify-content: center;
     border: 3px solid #fff;
-}
-
-.onpe-tocino .onpe-rank {
-    background: #888;
 }
 
 .onpe-candidate-name {
@@ -734,7 +805,18 @@ h1, h2, h3, h4 {
     left: 0;
     height: 100%;
     background: linear-gradient(90deg, #cc0000, #ff4444);
-    border-radius: 16px;
+    border-radius: 16px 0 0 16px;
+    transition: width 2s ease;
+    width: 0%;
+}
+
+.onpe-bar-fill-tocino {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(270deg, #0044cc, #4488ff);
+    border-radius: 0 16px 16px 0;
     transition: width 2s ease;
     width: 0%;
 }
@@ -1939,7 +2021,8 @@ h1, h2, h3, h4 {
         transform: translateY(0);
     }
 
-    .nav a {
+    .nav a,
+    .nav-dropdown-toggle {
         padding: 12px 0;
         font-size: 1rem;
         width: 100%;
@@ -1948,6 +2031,43 @@ h1, h2, h3, h4 {
 
     .nav a:last-child {
         border-bottom: none;
+    }
+
+    .nav-item {
+        width: 100%;
+    }
+
+    .nav-dropdown-menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        pointer-events: all;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        padding: 0 0 0 20px;
+        display: none;
+        background: transparent;
+        transition: none;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu {
+        transform: none;
+    }
+
+    .nav-dropdown.open .nav-dropdown-menu {
+        display: block;
+    }
+
+    .nav-dropdown-menu a {
+        padding: 10px 0;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #f0f0f0 !important;
+        color: #666;
+    }
+
+    .nav-dropdown-menu a:last-child {
+        border-bottom: none !important;
     }
 
     .hero {

@@ -46,10 +46,26 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Dropdown toggle on mobile
+    var dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+    dropdownToggles.forEach(function (toggle) {
+        toggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var parent = this.closest('.nav-dropdown');
+            if (parent) {
+                parent.classList.toggle('open');
+            }
+        });
+    });
+
     nav.querySelectorAll('a').forEach(function (link) {
         link.addEventListener('click', function () {
             nav.classList.remove('open');
             navToggle.classList.remove('active');
+            // Close dropdown if open
+            document.querySelectorAll('.nav-dropdown.open').forEach(function (d) {
+                d.classList.remove('open');
+            });
         });
     });
 
@@ -64,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
-        }, 5000);
+        }, 3000);
     }
 
     // ==========================================================
@@ -119,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var votosCppEl = document.getElementById('votosCpp');
     var votosTocinoEl = document.getElementById('votosTocino');
     var onpeBarFill = document.getElementById('onpeBarFill');
+    var onpeBarFillTocino = document.getElementById('onpeBarFillTocino');
     var onpeBarText = document.getElementById('onpeBarText');
     var diferenciaEl = document.getElementById('diferenciaVotos');
     var resultadosSection = document.getElementById('resultados');
@@ -139,6 +156,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setTimeout(function () {
             onpeBarFill.style.width = '50.111%';
+            if (onpeBarFillTocino) {
+                onpeBarFillTocino.style.width = '49.889%';
+            }
         }, 300);
 
         animateBarText();
