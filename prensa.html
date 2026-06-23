@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prensa y Kit de Prensa · CPP | Con Progreso se Progresa</title>
+    <link rel="stylesheet" href="css/prensa.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-cpp">CPP</span>
+                <span class="logo-slogan">Con Progreso se Progresa</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menú de navegación">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav" id="nav">
+                <a href="index.html#inicio">Inicio</a>
+                <div class="nav-item nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-label="Menú Nosotros">
+                        Nosotros <span class="nav-arrow">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="index.html#candidatos">Candidatos</a>
+                        <a href="index.html#propuestas">Plan de Gobierno</a>
+                        <a href="index.html#peru">Nuestro Perú</a>
+                    </div>
+                </div>
+                <a href="index.html#resultados">Resultados</a>
+                <a href="index.html#testimonios">Opiniones</a>
+                <a href="index.html#voluntarios">Voluntariado</a>
+                <a href="index.html#agenda">Agenda</a>
+                <a href="index.html#votar">Vota</a>
+                <div class="nav-item nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-label="Menú Prensa">
+                        Prensa <span class="nav-arrow">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="comunicados.html">Comunicados</a>
+                        <a href="prensa.html" style="color:#cc0000;">Notas de Prensa</a>
+                        <a href="blog.html">Blog</a>
+                    </div>
+                </div>
+                <a href="equipo.html">Equipo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== BANNER ===== -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Prensa y Kit de Prensa</h1>
+            <p>Recursos informativos para periodistas, medios de comunicación y ciudadanos interesados en la cobertura de nuestra campaña.</p>
+        </div>
+    </section>
+
+    <!-- ===== NOTAS DE PRENSA ===== -->
+    <section class="section notas">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="section-title">Notas de <span>Prensa</span></h2>
+                <p class="section-sub">Documentos oficiales descargables para uso de medios de comunicación.</p>
+            </div>
+            <div class="notas-grid">
+                <div class="nota-card fade-up">
+                    <div class="nota-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <div class="nota-body">
+                        <h3>Stiven Cuentas Ramos presenta plan de salud integral</h3>
+                        <span class="nota-date">22 de junio, 2026</span>
+                        <p>Comunicado de prensa sobre la presentación del plan de salud pública en el Cusco.</p>
+                        <a href="#" class="btn-descarga" onclick="alert('Descarga simulada: nota_stiven_salud.pdf'); return false;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Descargar PDF
+                        </a>
+                    </div>
+                </div>
+                <div class="nota-card fade-up">
+                    <div class="nota-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <div class="nota-body">
+                        <h3>CPP rechaza declaraciones de la oposición</h3>
+                        <span class="nota-date">21 de junio, 2026</span>
+                        <p>Comunicado oficial del partido frente a las recientes declaraciones del candidato de TOCINO.</p>
+                        <a href="#" class="btn-descarga" onclick="alert('Descarga simulada: cpp_comunicado_rechazo.pdf'); return false;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Descargar PDF
+                        </a>
+                    </div>
+                </div>
+                <div class="nota-card fade-up">
+                    <div class="nota-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <div class="nota-body">
+                        <h3>Plan de transformación digital del Estado</h3>
+                        <span class="nota-date">19 de junio, 2026</span>
+                        <p>Anthony La Torre presenta su propuesta para modernizar la gestión pública con inteligencia artificial.</p>
+                        <a href="#" class="btn-descarga" onclick="alert('Descarga simulada: plan_transformacion_digital.pdf'); return false;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Descargar PDF
+                        </a>
+                    </div>
+                </div>
+                <div class="nota-card fade-up">
+                    <div class="nota-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <div class="nota-body">
+                        <h3>Dudú Lizarzaburu anuncia gira cultural</h3>
+                        <span class="nota-date">20 de junio, 2026</span>
+                        <p>Recorrido por siete regiones del sur andino para impulsar la descentralización cultural.</p>
+                        <a href="#" class="btn-descarga" onclick="alert('Descarga simulada: gira_cultural_dudu.pdf'); return false;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Descargar PDF
+                        </a>
+                    </div>
+                </div>
+                <div class="nota-card fade-up">
+                    <div class="nota-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <div class="nota-body">
+                        <h3>Resultados oficiales: comunicado de la dirección nacional</h3>
+                        <span class="nota-date">15 de junio, 2026</span>
+                        <p>Pronunciamiento del partido ante los resultados de la segunda vuelta electoral.</p>
+                        <a href="#" class="btn-descarga" onclick="alert('Descarga simulada: resultados_oficiales_cpp.pdf'); return false;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Descargar PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOTOS OFICIALES ===== -->
+    <section class="section fotos">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="section-title">Fotos <span>Oficiales</span></h2>
+                <p class="section-sub">Galería de imágenes institucionales para uso de medios de comunicación.</p>
+            </div>
+            <div class="galeria-grid">
+                <div class="galeria-item fade-up">
+                    <img src="img/bannerchino.jpg" alt="Stiven Cuentas Ramos" loading="lazy" />
+                </div>
+                <div class="galeria-item fade-up">
+                    <img src="img/bannerdudu.jpg" alt="Dudú Lizarzaburu Flores" loading="lazy" />
+                </div>
+                <div class="galeria-item fade-up">
+                    <img src="img/banneranthony.jpg" alt="Anthony La Torre Velazco" loading="lazy" />
+                </div>
+                <div class="galeria-item fade-up">
+                    <div class="galeria-placeholder" style="background:linear-gradient(135deg,#cc0000,#990000);">GF</div>
+                </div>
+                <div class="galeria-item fade-up">
+                    <div class="galeria-placeholder" style="background:linear-gradient(135deg,#990000,#cc0000);">YH</div>
+                </div>
+                <div class="galeria-item fade-up">
+                    <img src="img/machupichu.jpg" alt="Machu Picchu" loading="lazy" />
+                </div>
+                <div class="galeria-item fade-up">
+                    <img src="img/bandera-peru.jpg" alt="Bandera del Perú" loading="lazy" />
+                </div>
+                <div class="galeria-item fade-up">
+                    <img src="img/cusco-paisaje.jpg" alt="Cusco" loading="lazy" />
+                </div>
+                <div class="galeria-item fade-up">
+                    <img src="img/arequipa-paisaje.jpg" alt="Arequipa" loading="lazy" />
+                </div>
+                <div class="galeria-item fade-up">
+                    <div class="galeria-placeholder" style="background:linear-gradient(135deg,#cc0000,#ffd700);">CPP</div>
+                </div>
+                <div class="galeria-item fade-up">
+                    <img src="img/peru-paisaje.jpg" alt="Paisaje peruano" loading="lazy" />
+                </div>
+                <div class="galeria-item fade-up">
+                    <div class="galeria-placeholder" style="background:linear-gradient(135deg,#1a1a1a,#cc0000);">C</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACTO DE PRENSA ===== -->
+    <section class="section contacto-prensa">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="section-title">Contacto de <span>Prensa</span></h2>
+                <p class="section-sub">Para consultas de medios, entrevistas y acreditaciones.</p>
+            </div>
+            <div class="contacto-grid">
+                <div class="contacto-card fade-up">
+                    <div class="contacto-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <h3>Correo electrónico</h3>
+                    <p><a href="mailto:prensa@cpp.pe">prensa@cpp.pe</a></p>
+                </div>
+                <div class="contacto-card fade-up">
+                    <div class="contacto-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <h3>Teléfono</h3>
+                    <p><a href="tel:+5115555678">(01) 555-5678</a></p>
+                    <p style="font-size:0.85rem;color:#888;">Atención: lun-sáb 9:00 a. m. - 7:00 p. m.</p>
+                </div>
+                <div class="contacto-card fade-up">
+                    <div class="contacto-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <h3>Dirección</h3>
+                    <p>Jr. de la Unión 245, Oficina 302<br />Lima Cercado, Lima 15001</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DECLARACIONES ===== -->
+    <section class="section declaraciones">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="section-title">Declaraciones <span>Destacadas</span></h2>
+                <p class="section-sub">Frases de nuestros candidatos que marcan el rumbo de la campaña.</p>
+            </div>
+            <div class="declaraciones-grid">
+                <div class="declaracion-card fade-up">
+                    <p class="declaracion-texto">Juntos por un Santutis Abierto — el Perú que merecemos. El cambio que el Perú necesita no es una promesa, es un compromiso.</p>
+                    <div class="declaracion-autor">
+                        <div class="declaracion-avatar" style="background:#cc0000;">SC</div>
+                        <div>
+                            <span class="declaracion-nombre">Stiven Cuentas Ramos</span>
+                            <span class="declaracion-cargo">Candidato a la Presidencia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="declaracion-card fade-up">
+                    <p class="declaracion-texto">Mi música NO se ESCUCHA pero tus OPINIONES SÍ. La cultura es el alma de un pueblo. Hagamos que se escuche en cada rincón del Perú.</p>
+                    <div class="declaracion-autor">
+                        <div class="declaracion-avatar" style="background:#990000;">DL</div>
+                        <div>
+                            <span class="declaracion-nombre">Dudú Lizarzaburu Flores</span>
+                            <span class="declaracion-cargo">Ministro de Cultura propuesto</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="declaracion-card fade-up">
+                    <p class="declaracion-texto">Tecnología para cerrar brechas, no para crearlas. La transformación digital del Estado no es el futuro, es el presente.</p>
+                    <div class="declaracion-autor">
+                        <div class="declaracion-avatar" style="background:#ffd700;color:#1a1a1a;">AL</div>
+                        <div>
+                            <span class="declaracion-nombre">Anthony La Torre Velazco</span>
+                            <span class="declaracion-cargo">Ministro de Tecnología propuesto</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <span class="logo-cpp">CPP</span>
+                        <span class="footer-slogan">Con Progreso se Progresa</span>
+                    </div>
+                    <p class="footer-text">Partido político peruano comprometido con el desarrollo sostenible, la transparencia y la justicia social. Construyendo el Perú que merecemos desde las bases.</p>
+                    <div class="footer-social" style="margin-top:16px;">
+                        <a href="#" class="social-link" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"/></svg></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces</h4>
+                    <a href="index.html#inicio">Inicio</a>
+                    <a href="index.html#candidatos">Candidatos</a>
+                    <a href="index.html#resultados">Resultados</a>
+                    <a href="index.html#propuestas">Plan de Gobierno</a>
+                    <a href="comunicados.html">Comunicados</a>
+                    <a href="prensa.html">Prensa</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="equipo.html">Equipo</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <address>
+                        Jr. de la Unión 245, Lima<br />
+                        <a href="mailto:info@cpp.pe">info@cpp.pe</a><br />
+                        <a href="tel:+5115551234">(01) 555-1234</a>
+                    </address>
+                </div>
+                <div class="footer-col">
+                    <h4>Legales</h4>
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Libro de reclamaciones</a>
+                    <a href="#">Transparencia</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 CPP · Con Progreso se Progresa. Todos los derechos reservados.</p>
+                <p class="footer-legal">Organización Política registrada ante el Jurado Nacional de Elecciones.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/prensa.js"></script>
+</body>
+</html>
