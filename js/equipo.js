@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    /* ---------- FADE-UP OBSERVER ---------- */
-    function observeFadeUp() {
-        var els = document.querySelectorAll('.fade-up');
+    /* ---------- ANIMATIONS OBSERVER ---------- */
+    function initAnimations() {
+        var els = document.querySelectorAll('.fade-up, .zoom-in');
         if ('IntersectionObserver' in window) {
             var observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
@@ -26,7 +26,7 @@
         }
     }
 
-    observeFadeUp();
+    initAnimations();
 
     /* ---------- HEADER SCROLL ---------- */
     var header = document.getElementById('header');

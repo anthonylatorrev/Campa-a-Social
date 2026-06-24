@@ -52,50 +52,52 @@
         </div>
     </header>
 
-    <!-- ===== BANNER ===== -->
+    <!-- ===== HERO / BANNER ===== -->
     <section class="page-banner">
         <div class="container">
-            <h1>Nuestro Equipo</h1>
-            <p>Conoce a los profesionales que conforman la plancha presidencial de Con Progreso se Progresa.</p>
+            <h1 class="banner-title">Nuestro Equipo</h1>
+            <p class="banner-sub">Conoce a los profesionales que conforman la plancha presidencial de Con Progreso se Progresa.</p>
         </div>
     </section>
 
-    <!-- ===== TEAM ===== -->
-    <section class="section">
+    <!-- ===== PLANCHA PRESIDENCIAL ===== -->
+    <section class="section" id="equipo">
         <div class="container">
             <div class="section-header fade-up">
                 <h2 class="section-title">Plancha Presidencial <span>2026</span></h2>
                 <p class="section-sub">Cinco peruanos comprometidos con el cambio, la transparencia y el desarrollo del país.</p>
             </div>
+
+            <!-- Stiven Cuentas - Presidente (Tarjeta Destacada) -->
+            <div class="team-featured zoom-in">
+                <span class="team-badge" data-cargo="presidente">Candidato a la Presidencia</span>
+                <div class="team-img-wrap team-img-wrap--xl">
+                    <img src="img/chinop.png" alt="Stiven Freddy Cuentas Ramos" class="team-img" />
+                </div>
+                <h3 class="team-nombre">Stiven Freddy Cuentas Ramos</h3>
+                <span class="team-cargo">Candidato a la Presidencia</span>
+                <span class="team-universidad">Universidad Continental</span>
+                <p class="team-desc">Líder con visión de futuro, comprometido con la transparencia y el desarrollo sostenible. Cuenta con experiencia en gestión municipal y coordinación de programas sociales. Su estilo directivo y capacidad de diálogo lo convierten en un candidato que busca tender puentes entre sectores políticos opuestos.</p>
+            </div>
+
+            <!-- Grid de Ministros y Secretaria -->
             <div class="team-grid">
 
-                <!-- Stiven -->
-                <div class="team-card team-card-destacado fade-up">
-                    <span class="team-badge">Candidato a la Presidencia</span>
-                    <div class="team-img-wrap">
-                        <img src="img/chinoc.png" alt="Stiven Freddy Cuentas Ramos" class="team-img" />
-                    </div>
-                    <h3 class="team-nombre">Stiven Freddy Cuentas Ramos</h3>
-                    <span class="team-cargo">Candidato a la Presidencia</span>
-                    <span class="team-universidad">Universidad Continental</span>
-                    <p class="team-desc">Líder con visión de futuro, comprometido con la transparencia y el desarrollo sostenible. Cuenta con experiencia en gestión municipal y coordinación de programas sociales. Su estilo directo y capacidad de diálogo lo convierten en un candidato que busca tender puentes entre sectores políticos opuestos.</p>
-                </div>
-
-                <!-- Dudú -->
+                <!-- Dudú Lizarzaburu - Ministro de Cultura -->
                 <div class="team-card fade-up">
-                    <span class="team-badge">Ministro de Cultura</span>
+                    <span class="team-badge" data-cargo="cultura">Ministro de Cultura</span>
                     <div class="team-img-wrap">
                         <img src="img/bannerdudu.jpg" alt="Dudú Lizarzaburu Flores" class="team-img" />
                     </div>
                     <h3 class="team-nombre">Dudú Lizarzaburu Flores</h3>
                     <span class="team-cargo">Ministro de Cultura</span>
-                    <span class="team-universidad">Universidad Continental · Instituto Superior de Música Público</span>
-                    <p class="team-desc">Gestor cultural y artista comprometido con la descentralización del arte. Ha trabajado en la promoción de artistas emergentes en regiones del interior del país y en la dirección de festivales culturales. Cree en una política cultural que llegue a cada rincón del Perú, sin elitismos ni exclusiones.</p>
+                    <span class="team-universidad">Universidad Continental - Instituto Superior de Música Pública</span>
+                    <p class="team-desc">Gestor cultural y artista comprometido con la descentralización del arte. Ha trabajado en la promoción de artistas emergentes en regiones del interior del país y en la dirección de festivales culturales. Cree en una política cultural que llegue a cada rincón del Perú, sin elitismo ni exclusión.</p>
                 </div>
 
-                <!-- Anthony -->
+                <!-- Anthony La Torre - Ministro de Tecnología -->
                 <div class="team-card fade-up">
-                    <span class="team-badge">Ministro de Tecnología</span>
+                    <span class="team-badge" data-cargo="tecnologia">Ministro de Tecnología</span>
                     <div class="team-img-wrap">
                         <img src="img/banneranthony.jpg" alt="Anthony Jareth La Torre Velazco" class="team-img" />
                     </div>
@@ -105,30 +107,51 @@
                     <p class="team-desc">Ingeniero de sistemas con especialización en transformación digital e inteligencia artificial. Ha liderado equipos de desarrollo en el sector privado y ha sido consultor en proyectos de modernización del Estado. Convencido de que la tecnología debe ser una herramienta de inclusión y desarrollo para todos los peruanos.</p>
                 </div>
 
-                <!-- Ginny -->
+                <!-- Ginny Farfan - Secretaria de Estado -->
                 <div class="team-card fade-up">
-                    <span class="team-badge">Secretaria de Estado</span>
+                    <span class="team-badge" data-cargo="secretaria">Secretaria de Estado</span>
                     <div class="team-img-wrap">
-                        <div class="team-avatar" style="background:linear-gradient(135deg,#cc0000,#990000);">GF</div>
+                        <div class="team-avatar" style="background:#7B2FBE;">GF</div>
                     </div>
                     <h3 class="team-nombre">Ginny Malena Farfan Carrion</h3>
                     <span class="team-cargo">Secretaria de Estado</span>
                     <span class="team-universidad">Universidad San Antonio Abad del Cusco</span>
-                    <p class="team-desc">Profesional en derecho y ciencias políticas con amplia experiencia en gestión pública. Ha trabajado en la elaboración de políticas de reforma del sistema penitenciario y en programas de reinserción social. Su compromiso con los derechos humanos y la justicia social la convierten en una pieza clave del equipo.</p>
+                    <p class="team-desc">Profesional en derecho y ciencias políticas con amplia experiencia en gestión pública. Ha trabajado en la elaboración de políticas de reforma del sistema penitenciario y en programas de reintegración social. Su compromiso con los derechos humanos y la justicia social la convierten en una pieza clave del equipo.</p>
                 </div>
 
-                <!-- Yajaira -->
+                <!-- Yajaira Huarcaya - Ministra del Interior -->
                 <div class="team-card fade-up">
-                    <span class="team-badge">Ministra del Interior</span>
+                    <span class="team-badge" data-cargo="interior">Ministra del Interior</span>
                     <div class="team-img-wrap">
-                        <div class="team-avatar" style="background:linear-gradient(135deg,#990000,#cc0000);">YH</div>
+                        <div class="team-avatar" style="background:#E67E22;">YH</div>
                     </div>
                     <h3 class="team-nombre">Yajaira Huarcaya Cabrera</h3>
                     <span class="team-cargo">Ministra del Interior</span>
                     <span class="team-universidad">Universidad Andina del Cusco</span>
-                    <p class="team-desc">Especialista en seguridad ciudadana y políticas de prevención del delito. Ha desarrollado programas de intervención comunitaria para la reducción de la violencia en zonas urbanas. Su enfoque integra la inteligencia policial con la participación ciudadana, buscando una seguridad que proteja sin estigmatizar.</p>
+                    <p class="team-desc">Especialista en seguridad ciudadana y políticas de prevención del delito. Ha desarrollado programas de intervención comunitaria para la reducción de la violencia en zonas urbanas. Su enfoque integra la inteligencia policial con la participación ciudadana, buscando una seguridad que proteja a todos los peruanos.</p>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NUESTRA VISIÓN ===== -->
+    <section class="section vision-section">
+        <div class="container">
+            <blockquote class="vision-blockquote fade-up">
+                <p>"Creemos en un Perú donde el progreso no sea un privilegio, sino un derecho. Por eso, cada uno de nosotros aporta desde su experiencia para construir un futuro más justo."</p>
+                <cite>&mdash; Equipo CPP · Con Progreso se Progresa</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- ===== CTA - ÚNETE AL EQUIPO ===== -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content fade-up">
+                <h2>&Uacute;nete al Equipo</h2>
+                <p>S&eacute; parte del cambio que el Per&uacute; necesita.</p>
+                <a href="index.html#voluntarios" class="btn-primary">Quiero ser parte</a>
             </div>
         </div>
     </section>
