@@ -218,8 +218,14 @@ button {
     padding: 160px 0 100px;
     text-align: center;
     overflow: hidden;
+}
+
+.parallax-bg {
+    position: absolute;
+    inset: -20% 0;
     background: url('../img/bandera-peru.jpg') center / cover no-repeat;
-    background-attachment: fixed;
+    will-change: transform;
+    z-index: 0;
 }
 
 .page-banner::before {
@@ -241,6 +247,8 @@ button {
     font-weight: 900;
     margin-bottom: 14px;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: heroZoomIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards;
 }
 
 .banner-sub {
@@ -249,6 +257,18 @@ button {
     max-width: 620px;
     margin: 0 auto;
     font-weight: 500;
+    min-height: 1.6em;
+}
+
+@keyframes heroZoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* ---------- SECTION ---------- */
@@ -290,6 +310,9 @@ button {
     box-shadow: 0 16px 60px rgba(255, 215, 0, 0.12), 0 8px 30px rgba(0, 0, 0, 0.06);
     position: relative;
     overflow: hidden;
+    will-change: transform;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .team-featured::after {
@@ -300,6 +323,10 @@ button {
     width: 100%;
     height: 5px;
     background: linear-gradient(90deg, #ffd700, #cc0000, #ffd700);
+}
+
+.team-featured-inner {
+    width: 100%;
 }
 
 .team-featured .team-badge {
@@ -363,11 +390,14 @@ button {
     border-radius: 24px;
     padding: 32px 24px 28px;
     text-align: center;
-    border: 1px solid #eee;
+    border: 2px solid #eee;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
+    will-change: transform;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .team-card::after {
@@ -390,7 +420,26 @@ button {
 .team-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 50px rgba(204, 0, 0, 0.1);
-    border-color: #cc0000;
+}
+
+.team-card[data-cargo="cultura"]:hover {
+    border-color: #00cc66;
+    box-shadow: 0 20px 50px rgba(0, 204, 102, 0.15);
+}
+
+.team-card[data-cargo="tecnologia"]:hover {
+    border-color: #0066ff;
+    box-shadow: 0 20px 50px rgba(0, 102, 255, 0.15);
+}
+
+.team-card[data-cargo="secretaria"]:hover {
+    border-color: #7B2FBE;
+    box-shadow: 0 20px 50px rgba(123, 47, 190, 0.15);
+}
+
+.team-card[data-cargo="interior"]:hover {
+    border-color: #E67E22;
+    box-shadow: 0 20px 50px rgba(230, 126, 34, 0.15);
 }
 
 .team-badge {
@@ -403,25 +452,26 @@ button {
     border-radius: 30px;
     margin-bottom: 20px;
     color: #fff;
+    will-change: transform;
 }
 
 .team-badge[data-cargo="presidente"] {
     background: linear-gradient(135deg, #cc0000, #ffd700);
 }
 
-.team-badge[data-cargo="cultura"] {
+.team-card[data-cargo="cultura"] .team-badge {
     background: #2ECC71;
 }
 
-.team-badge[data-cargo="tecnologia"] {
+.team-card[data-cargo="tecnologia"] .team-badge {
     background: #3498DB;
 }
 
-.team-badge[data-cargo="secretaria"] {
+.team-card[data-cargo="secretaria"] .team-badge {
     background: #7B2FBE;
 }
 
-.team-badge[data-cargo="interior"] {
+.team-card[data-cargo="interior"] .team-badge {
     background: #E67E22;
 }
 
@@ -617,10 +667,12 @@ button {
 }
 
 /* ---------- ANIMATIONS ---------- */
+/* Fade-Up */
 .fade-up {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
 }
 
 .fade-up.visible {
@@ -628,6 +680,7 @@ button {
     transform: translateY(0);
 }
 
+/* Zoom-In (legacy fallback) */
 .zoom-in {
     opacity: 0;
     transform: scale(0.8);
@@ -639,6 +692,62 @@ button {
     transform: scale(1);
 }
 
+/* Stiven Pop */
+.stiven-pop {
+    opacity: 0;
+    animation: stivenPop 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes stivenPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+    80% {
+        transform: scale(0.97);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Glow Pulse */
+.glow-pulse {
+    animation: glowPulse 2.5s ease-in-out infinite;
+    will-change: box-shadow;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 16px 60px rgba(255, 215, 0, 0.12), 0 8px 30px rgba(0, 0, 0, 0.06), 0 0 20px rgba(255, 215, 0, 0.15);
+    }
+    50% {
+        box-shadow: 0 16px 60px rgba(255, 215, 0, 0.2), 0 8px 30px rgba(0, 0, 0, 0.06), 0 0 50px rgba(255, 215, 0, 0.3);
+    }
+}
+
+/* Floating Badge */
+.floating {
+    animation: float 3s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Stagger delays for team cards */
 .section-header.fade-up.visible {
     transition-delay: 0s;
 }
@@ -860,7 +969,6 @@ button {
 
     .page-banner {
         padding: 130px 0 70px;
-        background-attachment: scroll;
     }
 
     .banner-title {
